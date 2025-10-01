@@ -1,22 +1,17 @@
 /* =======================================
- * リタワーク TOPページ
+ * リタワーク[企業向け]  TOPページ
  * URL: /app/page.tsx
- * Created: 2025-08-26
- * Last updated: 2025-08-26
+ * Created: 2025-10-01
+ * Last updated: 2025-10-01
  * ======================================= */
 
 import type { Metadata } from 'next';
 import { isRealProduction } from '@/lib/env';
-import ContainerTopHero from '@/components/Top/ContainerHero';
-import ContainerTopSearch from '@/components/Top/ContainerSearch';
-import ContainerTopMessage from '@/components/Top/ContainerMessage';
-import ContainerTopPickUp from '@/components/Top/ContainerPickUp';
-import ContainerTopConditions from '@/components/Top/ContainerConditions';
-import ContainerTopTips from '@/components/Top/ContainerTips';
+import ContainerHeader from '@/components/Top/ContainerHeader';
 
 export const generateMetadata = (): Metadata => {
   return {
-    title: 'リタワーク',
+    title: 'リタワーク｜求人掲載をご検討の事業者様へ',
     description: isRealProduction
       ? 'リタワークのディスクリプション'
       : undefined,
@@ -25,12 +20,7 @@ export const generateMetadata = (): Metadata => {
 export default function Home() {
   return (
     <>
-      <ContainerTopHero />
-      <ContainerTopSearch />
-      <ContainerTopPickUp />
-      <ContainerTopConditions />
-      <ContainerTopTips />
-      <ContainerTopMessage />
+      <ContainerHeader />
     </>
   );
 }

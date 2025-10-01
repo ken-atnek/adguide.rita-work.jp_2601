@@ -5,8 +5,7 @@
 // @import "swiper/css/navigation";
 body {
     @include SunSerif;
-
-    // font-feature-settings: "palt";
+    font-feature-settings: "palt";
     font-size: clamp(1.2rem, calc($base-vw * 1vw) + calc($slice * 1px), 1.6rem);
     margin: 0;
     padding: 0;
@@ -71,34 +70,4 @@ input {
     border-radius: 0;
     outline: none;
     appearance: none;
-}
-.swiper-button-prev,
-.swiper-button-next {
-    font-size: inherit;
-    width: 44px !important;
-    aspect-ratio: 1;
-    &::before,
-    &::after {
-        display: none;
-    }
-    svg {
-        position: relative;
-        fill: #726b62;
-    }
-}
-.swiper-button-prev {
-    left: -20px !important;
-    rotate: -90deg;
-}
-.swiper-button-next {
-    right: -20px !important;
-    rotate: 90deg;
-}
-.swiper-slide {
-    opacity: 0.5;
-    transition: 0.8s;
-}
-.swiper-slide-visible {
-    opacity: 1;
-    transition: 0.8s;
 }

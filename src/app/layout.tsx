@@ -1,32 +1,33 @@
 /* =======================================
- * リタワーク Layout
+ * リタワーク[企業向け] Layout
  * URL:src/app/layout.tsx
- * Created: 2025-08-26
- * Last updated: 2025-08-26
+ * Created: 2025-10-01
+ * Last updated: 2025-10-01
  * ======================================= */
 
 import type { Metadata } from 'next';
 import '@/styles/globals.scss';
-import { Noto_Sans_JP, Roboto } from 'next/font/google';
+import { Outfit, Zen_Kaku_Gothic_Antique } from 'next/font/google';
 import SvgDefs from '@/components/SvgDefs';
-import Header from '@/components/common/Header';
-import Footer from '@/components/common/Footer';
+
 import { isRealProduction } from '@/lib/env';
 
-const notoSans = Noto_Sans_JP({
+const outfit = Outfit({
   subsets: ['latin'],
-  weight: ['100', '300', '400', '500', '700', '900'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   display: 'swap',
 });
-const roboto = Roboto({
+const zenKakuGothicAntique = Zen_Kaku_Gothic_Antique({
   subsets: ['latin'],
-  weight: ['100', '300', '400', '500', '700', '900'],
+  weight: ['300', '400', '500', '700', '900'],
   display: 'swap',
 });
 
 // 本番のみ metadataBase を設定
 const metadataBase = isRealProduction
-  ? new URL(process.env.NEXT_PUBLIC_METADATA_BASE || 'https://rita-work.jp/')
+  ? new URL(
+      process.env.NEXT_PUBLIC_METADATA_BASE || 'https://adguide.rita-work.jp/'
+    )
   : undefined;
 
 export const metadata: Metadata = {
@@ -70,7 +71,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={`${notoSans.className} ${roboto.className}`}>
+    <html
+      lang="ja"
+      data-scroll-behavior="smooth"
+      className={`${outfit.className} ${zenKakuGothicAntique.className}`}
+    >
       <head>
         <meta
           name="format-detection"
@@ -83,9 +88,7 @@ export default function RootLayout({
       </head>
       <body>
         <SvgDefs />
-        <Header />
         <main>{children}</main>
-        <Footer />
       </body>
     </html>
   );
