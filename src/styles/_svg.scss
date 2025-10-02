@@ -1,7 +1,15 @@
 //コーナー三角オブジェクト
 @mixin svg-object-radius($color) {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 70" fill="%23#{$color}"><path class="cls-1" d="M0,0c8.25,5.9,15.44,13.3,21.2,21.84.36.57,9.11,13.59,12.66,29.02,1.14,5.12,1.71,10.32,1.71,10.32.28,2.92.43,5.83.43,8.82V0H0Z"/></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 70" fill="%23#{$color}"><path d="M0,0c8.25,5.9,15.44,13.3,21.2,21.84.36.57,9.11,13.59,12.66,29.02,1.14,5.12,1.71,10.32,1.71,10.32.28,2.92.43,5.83.43,8.82V0H0Z"/></svg>');
     aspect-ratio: 36/70;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+//下V矢印
+@mixin svg-arrow-bottom($color) {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 7" fill="%23#{$color}">  <path d="M7,7c-.41,0-.8-.14-1.1-.39L.4,1.99C-.08,1.59-.14.87.28.39s1.16-.53,1.65-.12l5.07,4.26L12.07.28c.49-.41,1.22-.36,1.65.12.42.47.37,1.19-.12,1.6l-5.49,4.61c-.31.25-.7.39-1.1.39Z"/></svg>');
+    aspect-ratio: 14/7;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;

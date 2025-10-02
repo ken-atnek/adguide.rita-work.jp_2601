@@ -18,7 +18,7 @@
         color: #fff;
         background-color: $other-black;
         font-size: inherit;
-        padding: 0.3em 1em;
+        padding: 0.5em 1em;
         span {
             font-size: FZ(18);
             letter-spacing: 0.3em;
@@ -35,7 +35,7 @@
             gap: 0 1em;
             padding: 1em 1em;
             border-bottom-left-radius: 1rem;
-            z-index: 2;
+            z-index: 3;
             &::before {
                 content: "";
                 position: absolute;
@@ -52,19 +52,136 @@
         }
     }
     .blockTop {
-        padding: 1em 4vw;
+        padding: 0 4vw 0;
         background: url(/images/hero.webp) no-repeat center center / cover;
+        z-index: 2;
         .catch {
             color: #fffbf4;
             font-weight: 900;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            gap: 20vw 0;
+            gap: 26vw 0;
             font-size: 14vw;
-            border: solid 1px #0000ff;
+            translate: 0 0.1em;
             span {
                 letter-spacing: 0.08em;
+            }
+        }
+        .svgText {
+            position: absolute;
+            right: 8vw;
+            top: 8vw;
+            font-size: inherit;
+            width: 25vw;
+            svg {
+                aspect-ratio: 334/148;
+                fill: $other-black;
+            }
+        }
+        .linkContact {
+            position: absolute;
+            right: 8vw;
+            bottom: 14vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: FZ(20);
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.04em;
+            background-color: $base-blue;
+            padding: 0.8em 2em;
+            border-radius: 100vmax;
+            &::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                translate: -50%;
+                width: 60%;
+                background: url(../images/mascot01.webp) no-repeat center
+                    center/contain;
+                aspect-ratio: 141/188;
+                bottom: 35%;
+                z-index: -1;
+            }
+            span {
+                font-size: 0.8em;
+                font-weight: 500;
+            }
+        }
+    }
+    .blockBottom {
+        background-color: $main-orange;
+        @include bottom-radius($radius80);
+        display: flex;
+        justify-content: flex-end;
+        padding: 4em 4vw 4em;
+        gap: 0 3em;
+        .text {
+            position: relative;
+            align-self: center;
+            font-size: FZ(36);
+            font-weight: 600;
+            color: $other-black;
+            letter-spacing: 0.09em;
+            line-height: 1.3em;
+            &::before {
+                position: absolute;
+                content: "";
+                top: 50%;
+                translate: 0 -50%;
+                right: calc(100% + 0.5em);
+                width: 170%;
+                background: url(../images/mascot02.webp) no-repeat center
+                    center/contain;
+                aspect-ratio: 423/569;
+            }
+        }
+        article {
+            display: flex;
+            flex-direction: column;
+            min-width: 50%;
+            max-width: 38em;
+            h2 {
+                color: $other-black;
+                font-size: FZ(40);
+                font-weight: 700;
+                letter-spacing: 0.1em;
+                i {
+                    @include Outfit;
+                    display: inline-block;
+                    font-weight: 600;
+                    font-size: 1.2em;
+                }
+            }
+            nav {
+                font-size: inherit;
+                display: flex;
+                flex-direction: column;
+                margin-top: 1.6em;
+                gap: 0.8em 0;
+                a {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    background-color: $base-blue;
+                    color: #fff;
+                    font-size: FZ(24);
+                    font-weight: 500;
+                    padding: 0.5em 1.4em;
+                    border-radius: 100vmax;
+                    letter-spacing: 0.12em;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: 50%;
+                        translate: 0 -50%;
+                        right: 1.2em;
+                        @include svg-arrow-bottom("fff");
+                        width: 0.5em;
+                    }
+                }
             }
         }
     }

@@ -46,7 +46,12 @@ $articleMaxWidth: 1155px;
     font-weight: 400;
     font-style: normal;
 }
-
+@mixin Outfit {
+    font-family:
+        var(--font-outfit, "Outfit"), "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
 /* =================================
  * カラー変数
  * ------------------------------ */
@@ -56,6 +61,7 @@ $bg-white: #fef4e5;
 $main-black: #574232;
 $other-black: #362f24;
 $font-black: #726b62;
+$base-blue: #4c6be8;
 $main-orange: #f29400;
 $key-orange: #ff7b00;
 $sub-orange: #ffcd39;

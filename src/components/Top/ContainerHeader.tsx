@@ -31,6 +31,36 @@ const ContainerHeader = () => {
             <i>筋</i>がある
           </span>
         </p>
+        <div className={styles.svgText}>
+          <svg aria-label="人手不足の業界に先行く一手を！！">
+            <title>人手不足の業界に先行く一手を！！</title>
+            <use href="#svg_heroText" />
+          </svg>
+        </div>
+        <a href="#" className={styles.linkContact}>
+          <span>求人掲載の</span>
+          ご相談・お申し込み
+        </a>
+      </section>
+      <section className={styles.blockBottom}>
+        <div className={styles.text}>
+          RITA
+          <br />
+          WORK
+          <br />
+          is...
+        </div>
+        <article>
+          <h2>
+            その布石は、<i>4</i>つの特化から。
+          </h2>
+          <nav>
+            <a href="#">熊本県の「医療&介護」特化型転職サイト</a>
+            <a href="#">圧倒的な事業所のリサーチ＆アピール力</a>
+            <a href="#">求職者にしっかり寄り添った転職支援</a>
+            <a href="#">管理が把握しやすい明朗会計のプラン</a>
+          </nav>
+        </article>
       </section>
     </header>
   );
