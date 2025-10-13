@@ -1,0 +1,262 @@
+/* =================================
+ * 	フォーム
+ * ------------------------------ */
+@use "variable" as *;
+@use "svg" as *;
+@use "mixin" as *;
+/* stylelint-disable no-descending-specificity */
+/* stylelint-disable keyframes-name-pattern */
+/* stylelint-disable custom-property-pattern */
+// このファイル全体のルールを無効にする
+.blockForm {
+    max-width: $articleMaxWidth;
+    background-color: $bg-white;
+    border-radius: $radius40;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3em;
+    .itemDetail {
+        font-size: inherit;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 935px;
+        @include sp {
+            padding: 0;
+        }
+        .innerForm {
+            position: relative;
+            font-size: inherit;
+            padding: 3em 2em 5em;
+            .boxBtn {
+                font-size: inherit;
+                display: flex;
+                flex-direction: column;
+                p {
+                    font-size: FZ(16);
+                    color: $other-black;
+                }
+                button {
+                    font-size: FZ(14);
+                    padding-block: 1em;
+                    border-radius: 0.3rem;
+                    transition: 0.3s ease-out;
+                    background-color: $base-blue;
+                    @include sp {
+                        padding-block: 4vw;
+                        font-size: FZ(16);
+                    }
+                    &:hover {
+                        background-color: #929292;
+                    }
+                }
+            }
+            .blockFormInner {
+                position: relative;
+                width: 100%;
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: 2em 0;
+                font-size: inherit;
+                @include sp {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4vw 0;
+                }
+                // inputタグ初期化
+                input {
+                    margin: 0;
+                    padding: 0;
+                    background: none;
+                    border: none;
+                    border-radius: 0;
+                    outline: none;
+                    appearance: none;
+                }
+                // textareaタグ初期化
+                textarea {
+                    outline: none;
+                    min-height: 18lh;
+                    field-sizing: content;
+                    @include sp {
+                        min-height: 20lh;
+                    }
+                }
+                select,
+                textarea,
+                input[type="text"],
+                input[type="email"] {
+                    width: 100%;
+                    color: #555;
+                    padding: 0.8em 1.6em;
+                    height: 64px;
+                    border-radius: $radius14;
+                    letter-spacing: 0.04em;
+                    font-size: 1.6rem;
+                    background-color: #fff;
+                    box-shadow: 3px 3px 2px 0 rgba($other-black, 0.2);
+                    @include sp {
+                        padding: 1em;
+                        width: 100%;
+                        font-size: 1.6rem;
+                    }
+                    &::placeholder {
+                        color: #8f8f8f;
+                    }
+                    &.itemPost {
+                        width: 50%;
+                    }
+                }
+
+                select {
+                    outline: none;
+                    appearance: none;
+                    cursor: pointer;
+                    @include sp {
+                        white-space: nowrap;
+                        min-width: 16em;
+                    }
+                }
+                dl {
+                    width: 100%;
+                    position: relative;
+                    font-size: inherit;
+                    grid-column: span 2;
+                    display: grid;
+                    grid-template-columns: subgrid;
+                    gap: 0 3em;
+                    @include sp {
+                        gap: 2vw 0;
+                    }
+                    dt {
+                        font-size: FZ(18);
+                        display: flex;
+                        color: $other-black;
+                        justify-self: end;
+                        padding-top: 1em;
+                        &.formRequired {
+                            &::after {
+                                content: "必須";
+                                font-size: inherit;
+                                margin-left: 0.5em;
+                                background-color: $sub-orange;
+                                align-self: flex-start;
+                                padding: 0.1em 0.3em;
+                                border-radius: $radius8;
+                            }
+                        }
+                    }
+                    dd {
+                        font-size: inherit;
+                        position: relative;
+                        &.wrapAdd {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            gap: 0.8em 0;
+                        }
+                        &.replyMethod,
+                        &.industry {
+                            position: relative;
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                top: 50%;
+                                translate: 0 -50%;
+                                right: 1em;
+                                width: 14px;
+                                @include svg-arrow-bottom("ABA6A1");
+                            }
+                        }
+                    }
+                }
+                .boxBtn {
+                    font-size: inherit;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    grid-column: span 2;
+                    p {
+                        font-size: FZ(16);
+                        font-weight: 500;
+                        color: $other-black;
+                        letter-spacing: 0.2em;
+                        a {
+                            font-size: inherit;
+                            color: $base-blue;
+                        }
+                    }
+                    button {
+                        width: 28rem;
+                        height: 64px;
+                        font-size: FZ(20);
+                        border-radius: $radius14;
+                        transition: 0.3s ease-out;
+                        background-color: $base-blue;
+                        margin-top: 3em;
+                        @include sp {
+                            padding-block: 4vw;
+                            font-size: FZ(16);
+                        }
+                        &:hover {
+                            background-color: #929292;
+                        }
+                    }
+                }
+            }
+
+            // 確認画面
+            .statusConfirm {
+                width: 100%;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                gap: 2em 0;
+                font-size: inherit;
+                @include sp {
+                    gap: 6vw 0;
+                    padding-top: 4vw;
+                }
+                p {
+                    align-self: center;
+                    font-size: FZ(16);
+                }
+                dl {
+                    display: flex;
+                    font-size: inherit;
+                    dt {
+                        font-size: FZ(14);
+                        color: #555;
+                        width: 10em;
+                    }
+                    dd {
+                        font-size: inherit;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.5em 0;
+                        & > div {
+                            font-size: FZ(16);
+                        }
+                    }
+                }
+                .boxMessage {
+                    border: 1px solid #ccc;
+                    font-size: FZ(16);
+                    padding: 0.8em;
+                    line-height: 1.6em;
+                }
+                .box_btn {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    font-size: inherit;
+                    gap: 0 2em;
+                    margin-top: 1em;
+                    @include sp {
+                        margin-top: 10vw;
+                    }
+                }
+            }
+        }
+    }
+}

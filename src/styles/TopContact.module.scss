@@ -1,0 +1,172 @@
+/* =================================
+ * 	ご相談・お問い合わせ
+ * ------------------------------ */
+@use "variable" as *;
+@use "svg" as *;
+@use "mixin" as *;
+/* stylelint-disable no-descending-specificity */
+/* stylelint-disable keyframes-name-pattern */
+/* stylelint-disable custom-property-pattern */
+// このファイル全体のルールを無効にする
+.containerContact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6em 4vw 3em;
+    background-color: $key-orange;
+    @include top-radius($radius80);
+    color: #fff;
+    h2 {
+        font-size: FZ(40);
+        font-weight: 700;
+    }
+}
+
+/* =================================
+ * FOOTER
+ * ------------------------------ */
+.blockFooter {
+    display: flex;
+    flex-direction: column;
+    max-width: $articleMaxWidth;
+    padding-top: 5em;
+    .stepList {
+        position: relative;
+        font-size: inherit;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0 3em;
+        li {
+            position: relative;
+            font-size: inherit;
+            border: 1px solid #fff;
+            padding: 2em 2em;
+            gap: 2em 0;
+            border-radius: $radius24;
+            display: flex;
+            flex-direction: column;
+            &:not(:last-of-type) {
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    font-size: inherit;
+                    translate: 0 -50%;
+                    left: calc(100% + 6px);
+                    width: calc(3em - 1rem);
+                    height: 1px;
+                    background-image: linear-gradient(
+                        to right,
+                        #fff 2px,
+                        transparent 2px
+                    );
+                    background-size: 4px 1px;
+                    background-repeat: repeat-x;
+                    background-position: left bottom;
+                }
+            }
+            .step {
+                position: absolute;
+                left: 50%;
+                translate: -50%;
+                top: -0.7em;
+                @include Outfit;
+                font-size: FZ(24);
+                letter-spacing: 0.12em;
+                color: $sub-orange;
+                background-color: $key-orange;
+                padding-inline: 0.5em;
+                width: max-content;
+            }
+            h3 {
+                font-size: FZ(24);
+                font-weight: 700;
+                align-self: center;
+            }
+            .text {
+                font-size: FZ(18);
+                line-height: 1.6em;
+                text-align: justify;
+                font-weight: 500;
+            }
+        }
+    }
+    .notice {
+        margin-top: 2em;
+        font-size: FZ(16);
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        line-height: 1.8em;
+    }
+    .itemHr {
+        font-size: inherit;
+        margin-block: 3em;
+        position: relative;
+        height: 1px;
+        width: 100%;
+        &::before {
+            content: "";
+            position: absolute;
+            border-top: 1px solid #fff;
+            left: 0;
+            top: 50%;
+            width: calc(100% - 7rem);
+            translate: 0 -50%;
+        }
+        a {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            translate: 0 -50%;
+            font-size: inherit;
+            width: 4rem;
+            aspect-ratio: 1;
+            background-color: #fff;
+            border-radius: 50%;
+            &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                translate: -50% -50%;
+                width: 35%;
+                @include svg-arrow-top("ff7b00");
+            }
+        }
+    }
+    .boxFoot {
+        font-size: inherit;
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        gap: 0.5em 0;
+        .itemLogo {
+            font-size: inherit;
+            grid-row: span 2;
+            font-size: FZ(14);
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            letter-spacing: 0.12em;
+            gap: 0.5em 0;
+            svg {
+                width: 26rem;
+                aspect-ratio: $aspect-logo-footer;
+                fill: #fff;
+            }
+        }
+        a {
+            font-size: FZ(14);
+            font-weight: 500;
+            justify-self: end;
+            align-self: flex-end;
+        }
+        span {
+            @include Outfit;
+            font-size: FZ(12);
+            justify-self: end;
+        }
+    }
+}

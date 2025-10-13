@@ -6,7 +6,7 @@
  * Last updated: 2025-10-01
  * ======================================= */
 
-import styles from '@/styles/PageTop.module.scss';
+import styles from '@/styles/TopHero.module.scss';
 import { SHOP_INFO } from '@/config/shop';
 
 const ContainerHeader = () => {
@@ -43,23 +43,25 @@ const ContainerHeader = () => {
         </a>
       </section>
       <section className={styles.blockBottom}>
-        <div className={styles.text}>
-          RITA
-          <br />
-          WORK
-          <br />
-          is...
-        </div>
         <article>
-          <h2>
-            その布石は、<i>4</i>つの特化から。
-          </h2>
-          <nav>
-            <a href="#">熊本県の「医療&介護」特化型転職サイト</a>
-            <a href="#">圧倒的な事業所のリサーチ＆アピール力</a>
-            <a href="#">求職者にしっかり寄り添った転職支援</a>
-            <a href="#">管理が把握しやすい明朗会計のプラン</a>
-          </nav>
+          <div className={styles.text}>
+            RITA
+            <br />
+            WORK
+            <br />
+            is...
+          </div>
+          <div className={styles.wrapList}>
+            <h2>
+              その布石は、<i>4</i>つの特化から。
+            </h2>
+            <nav>
+              <a href="#">熊本県の「医療&介護」特化型転職サイト</a>
+              <a href="#">圧倒的な事業所のリサーチ＆アピール力</a>
+              <a href="#">求職者にしっかり寄り添った転職支援</a>
+              <a href="#">管理が把握しやすい明朗会計のプラン</a>
+            </nav>
+          </div>
         </article>
       </section>
     </header>

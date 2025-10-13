@@ -1,0 +1,708 @@
+/* =================================
+ * 	4つの特化リスト
+ * ------------------------------ */
+@use "variable" as *;
+@use "svg" as *;
+@use "mixin" as *;
+/* stylelint-disable no-descending-specificity */
+/* stylelint-disable keyframes-name-pattern */
+/* stylelint-disable custom-property-pattern */
+// このファイル全体のルールを無効にする
+.containerFocusList {
+    display: flex;
+    flex-direction: column;
+    padding: 4em 4vw 5em;
+    z-index: 2;
+    background-color: $base-white;
+    @include bottom-radius($radius80);
+    h2 {
+        position: absolute;
+        top: 0;
+        left: -4vw;
+        background-color: $base-blue;
+        color: #fff;
+        align-self: flex-start;
+        font-size: FZ(18);
+        font-weight: 500;
+        width: 50rem;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        border-radius: 0 100vmax 100vmax 0;
+        padding-left: 5.4em;
+        letter-spacing: 0.12em;
+        &::before {
+            content: var(--data-number, "");
+            position: absolute;
+            top: 50%;
+            translate: 0 -50%;
+            left: 1em;
+            z-index: 2;
+            font-size: 2em;
+            @include Outfit;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+    }
+    h3 {
+        font-size: FZ(40);
+        margin-top: 1em;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        i {
+            background-image: linear-gradient(
+                to bottom,
+                transparent 85%,
+                $sub-orange 85%
+            );
+        }
+    }
+    .sidebarH3 {
+        font-size: FZ(32);
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        margin-top: 0.8em;
+    }
+    .itemPageLink {
+        position: absolute;
+        width: 44px;
+        aspect-ratio: 1;
+        background-color: $key-orange;
+        border-radius: 50%;
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            width: 15px;
+            @include svg-arrow-triangle("4C6BE8");
+            translate: 2px;
+        }
+    }
+}
+
+/* =================================
+ * 熊本県の「医療&介護」特化型転職サイト
+ * ------------------------------ */
+.blockFocus01 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4em;
+    padding-bottom: clamp(20rem, 23vw, 33rem);
+    .boxContents {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: $articleMaxWidth;
+        align-items: center;
+        font-size: inherit;
+        margin-top: 10em;
+        .wrapMap {
+            flex: 1;
+            position: relative;
+            font-size: inherit;
+            min-width: 35rem;
+            .innerMap {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                translate: -50% calc(6em - 50%);
+                aspect-ratio: 711/684;
+                width: 150%;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    @include svg-illust-map("FF7B00");
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 7%;
+                    left: 20%;
+                    width: 20%;
+                    background: url("../images/mascot03.webp") no-repeat center
+                        center/contain;
+                    aspect-ratio: 168/305;
+                }
+                .itemCharacter {
+                    position: absolute;
+                }
+            }
+        }
+        .wrapText {
+            background-color: $bg-white;
+            font-size: inherit;
+            display: flex;
+            flex-direction: column;
+            @include top-radius($radius24);
+            @include bottom-radius($radius24);
+            z-index: 1;
+            h4 {
+                background-color: $sub-orange;
+                text-align: center;
+                font-size: inherit;
+                @include top-radius($radius24);
+                padding-block: 1em;
+                span {
+                    font-weight: 700;
+                    letter-spacing: 0.12em;
+                    font-size: FZ(24);
+                }
+            }
+            p {
+                font-size: FZ(18);
+                line-height: 1.8em;
+                padding: 1.4em;
+                text-align: justify;
+                max-width: 19em;
+            }
+        }
+    }
+}
+
+/* =================================
+ * 圧倒的な事業所のリサーチ＆アピール力
+ * ------------------------------ */
+.blockFocus02 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5em;
+    padding-bottom: 6em;
+    .notice {
+        font-size: FZ(20);
+        letter-spacing: 0.3em;
+        font-weight: 700;
+        margin-top: 3em;
+    }
+    ul {
+        position: relative;
+        font-size: inherit;
+        display: grid;
+        grid-template-columns: 40% 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        margin-top: 3em;
+        gap: 2em 0;
+        width: 100%;
+        max-width: 106rem;
+        li {
+            font-size: inherit;
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: subgrid;
+            .wrapImage {
+                display: flex;
+                font-size: inherit;
+                background-color: $key-orange;
+                border-radius: $radius24 0 0 $radius24;
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+            .wrapText {
+                position: relative;
+                font-size: inherit;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                background-color: $sub-orange;
+                border-radius: 0 $radius24 $radius24 0;
+                padding-left: 3em;
+                padding-right: 7em;
+                max-width: 63rem;
+                h4 {
+                    font-size: FZ(24);
+                    font-weight: 700;
+                }
+                p {
+                    font-size: FZ(18);
+                    line-height: 1.8em;
+                    margin-top: 1em;
+                }
+                .itemPageLink {
+                    bottom: 2em;
+                    right: 2em;
+                }
+            }
+            &.item1 {
+                .wrapImage {
+                    justify-content: flex-end;
+                    align-items: flex-end;
+                    img {
+                        max-width: 385px;
+                    }
+                }
+            }
+            &.item2 {
+                .wrapImage {
+                    align-items: flex-end;
+                    img {
+                        max-width: 380px;
+                    }
+                }
+            }
+            &.item3 {
+                .wrapImage {
+                    justify-content: center;
+                    align-items: flex-end;
+                    img {
+                        max-width: 274px;
+                        object-position: center bottom;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* =================================
+ * 求職者にしっかり寄り添った転職支援
+ * ------------------------------ */
+.blockFocus03 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5em;
+    padding-bottom: 6em;
+    .boxContents {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        max-width: $articleMaxWidth;
+        font-size: inherit;
+        margin-top: 4em;
+        ul {
+            width: 55%;
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.4em;
+            font-size: inherit;
+            &::before {
+                content: "";
+                position: absolute;
+                bottom: 2em;
+                right: calc(100% - 3em);
+                width: 95%;
+                background: url("../images/FocusList/illust-hand.svg") no-repeat
+                    center center / contain;
+                aspect-ratio: 652/574;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 22em;
+                right: calc(100% + 4em);
+                width: 26%;
+                background: url("../images/mascot04.webp") no-repeat center
+                    center / contain;
+                aspect-ratio: 243/336;
+            }
+            li {
+                position: relative;
+                background-color: $key-orange;
+                color: #fff;
+                font-size: inherit;
+                display: flex;
+                flex-direction: column;
+                padding: 2em;
+                border-radius: 0 $radius24 $radius24;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    right: 100%;
+                    width: 8px;
+                    @include svg-object-radius("ff7b00");
+                }
+                h4 {
+                    color: $sub-orange;
+                    font-size: FZ(24);
+                    font-weight: 700;
+                    line-height: 1.6em;
+                    border-bottom: 2px solid;
+                    padding-bottom: 0.5em;
+                    white-space: pre-line;
+                }
+                p {
+                    font-size: FZ(18);
+                    line-height: 1.7em;
+                    margin-top: 1em;
+                    text-align: justify;
+                }
+            }
+        }
+    }
+    .announce {
+        background-color: #fef4e5;
+        font-size: FZ(22);
+        max-width: 104rem;
+        border-radius: 10vmax;
+        padding: 1em 2em;
+        text-align: center;
+        margin-top: 3em;
+        letter-spacing: 0.08em;
+        line-height: 1.6em;
+        font-weight: 500;
+        i {
+            color: $key-orange;
+        }
+    }
+}
+
+/* =================================
+ * 管理が把握しやすい明朗会計のプラン
+ * ------------------------------ */
+.blockFocus04 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5em;
+    .planTable {
+        position: relative;
+        font-size: inherit;
+        margin-top: 4em;
+        display: grid;
+        width: 100%;
+        max-width: $articleMaxWidth;
+        grid-template-columns: auto 1fr 1fr 1fr;
+        gap: 1px;
+        li {
+            grid-column: span 4;
+            display: grid;
+            grid-template-columns: subgrid;
+            font-size: inherit;
+            min-height: 3.6em;
+            h5 {
+                font-size: inherit;
+                background-color: $other-black;
+                color: #fff;
+                padding: 0.8em 1.4em;
+                display: flex;
+                align-items: center;
+                span {
+                    font-size: FZ(18);
+                }
+            }
+            & > * {
+                &:last-child {
+                    background-color: $key-orange;
+                }
+                &:nth-last-child(2) {
+                    background-color: $sub-orange;
+                }
+                &:nth-last-child(3) {
+                    background-color: #d6d6d6;
+                }
+            }
+            &.planHeader {
+                h4 {
+                    font-size: inherit;
+                    display: flex;
+                    justify-content: center;
+                    padding: 1.6em 0 1em;
+                    border-radius: $radius14 $radius14 0 0;
+                    span {
+                        font-size: FZ(24);
+                        font-weight: 700;
+                    }
+                    &:first-of-type {
+                        grid-column-start: 2;
+                    }
+                }
+            }
+            &.planPrices {
+                h5 {
+                    &:first-of-type {
+                        border-top-left-radius: $radius14;
+                    }
+                }
+                .price {
+                    font-size: inherit;
+                    @include flex-center;
+                    span {
+                        @include Outfit;
+                        font-size: FZ(34);
+                        font-weight: 600;
+                        &::after {
+                            content: "円＋税";
+                            font-weight: 400;
+                            font-size: 0.58em;
+                            margin-left: 0.2em;
+                        }
+                    }
+                }
+            }
+            &.planRow {
+                div {
+                    @include flex-center;
+                    font-size: inherit;
+                    img {
+                        width: 28px;
+                        aspect-ratio: 1;
+                    }
+                    span {
+                        font-size: FZ(32);
+                        @include Outfit;
+                        font-weight: 500;
+                    }
+                    &:not(:first-of-type) {
+                        span {
+                            &::after {
+                                content: "倍";
+                                font-size: 0.75em;
+                                margin-left: 0.2em;
+                            }
+                        }
+                    }
+                }
+                &:last-of-type {
+                    h5 {
+                        border-bottom-left-radius: $radius14;
+                    }
+                    div {
+                        &:last-of-type {
+                            border-bottom-right-radius: $radius14;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .itemPlus {
+        position: relative;
+        width: 56px;
+        aspect-ratio: 1;
+        background-color: $other-black;
+        margin: 3em 0;
+        font-size: inherit;
+        border-radius: 50%;
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            width: 50%;
+            height: 4px;
+            background-color: #fff;
+        }
+        &::after {
+            rotate: -90deg;
+        }
+    }
+    .boxBannerPlan {
+        position: relative;
+        width: 100%;
+        max-width: $articleMaxWidth;
+        display: flex;
+        flex-direction: column;
+        font-size: inherit;
+        .itemTitle {
+            font-size: inherit;
+            display: flex;
+            justify-content: center;
+            background-color: $key-orange;
+            border: 2px solid $key-orange;
+            @include top-radius($radius24);
+            padding: 1.7em 2em;
+            h4 {
+                font-size: FZ(24);
+                font-weight: 700;
+                line-height: 1em;
+                i {
+                    line-height: 1em;
+                    background-image: linear-gradient(
+                        to bottom,
+                        transparent 65%,
+                        $sub-orange 65%,
+                        $sub-orange 85%,
+                        transparent 85%
+                    );
+                }
+            }
+        }
+        .innerContents {
+            background-color: #fef4e5;
+            border: 2px solid $key-orange;
+            @include bottom-radius($radius24);
+            font-size: inherit;
+            display: flex;
+            flex-direction: column;
+            padding: 3em;
+            .itemPageLink {
+                bottom: 3em;
+                right: 3em;
+            }
+            .wrapHead {
+                display: flex;
+                justify-content: space-between;
+                font-size: inherit;
+                gap: 0 1em;
+                padding-left: 1em;
+                h5 {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    color: $key-orange;
+                    font-size: FZ(36);
+                    font-weight: 700;
+                    gap: 0 1em;
+                    span {
+                        position: relative;
+                        text-align: center;
+                        font-size: 0.66em;
+                        color: #fff;
+                        z-index: 1;
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            translate: -50% -50%;
+                            background-color: $key-orange;
+                            aspect-ratio: 1;
+                            width: 145%;
+                            border-radius: 50%;
+                            z-index: -1;
+                        }
+                        i {
+                            @include Outfit;
+                            font-size: 1.166em;
+                            font-weight: 600;
+                        }
+                    }
+                }
+                .itemPremium {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-left: auto;
+                    font-size: inherit;
+                    justify-content: center;
+                    color: #fff;
+                    background-color: $key-orange;
+                    border-radius: $radius14;
+                    padding: 0.8em 1.4em;
+                    h6 {
+                        font-size: FZ(24);
+                        font-weight: 700;
+                    }
+                    span {
+                        @include Outfit;
+                        font-size: FZ(34);
+                        font-weight: 600;
+                        i {
+                            @include SunSerif;
+                            font-weight: 500;
+                            font-size: 0.7em;
+                            margin-left: 0.2em;
+                        }
+                    }
+                }
+                .itemPlanPrice {
+                    font-size: inherit;
+                    display: flex;
+                    background-color: $sub-orange;
+                    align-items: center;
+                    padding-inline: 1.4em;
+                    border-radius: 0 $radius14 $radius14;
+                    position: relative;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        right: 100%;
+                        width: 8px;
+                        @include svg-object-radius("ffcd39");
+                    }
+                    span {
+                        @include Outfit;
+                        font-size: FZ(48);
+                        font-weight: 600;
+                        &::before {
+                            content: "+";
+                            font-weight: 400;
+                            margin-right: 0.2em;
+                        }
+                    }
+                    i {
+                        font-size: FZ(20);
+                        font-weight: 500;
+                        margin-left: 0.2em;
+                        margin-top: 0.6em;
+                    }
+                }
+            }
+            ul {
+                position: relative;
+                font-size: inherit;
+                display: flex;
+                flex-direction: column;
+                gap: 0.5em 0;
+                width: 70%;
+                min-width: 68rem;
+                margin-top: 3em;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: calc(100% + 1.4em);
+                    width: 20%;
+                    background: url("../images/mascot05.webp") no-repeat center
+                        center / contain;
+                    aspect-ratio: 221/335;
+                }
+                li {
+                    position: relative;
+                    background-color: #fff;
+                    font-size: inherit;
+                    display: flex;
+                    flex-direction: column;
+                    padding-left: 4.8em;
+                    padding-right: 1em;
+                    padding-block: 0.8em;
+                    border-radius: $radius14;
+                    i {
+                        position: absolute;
+                        left: 2em;
+                        top: 0.8em;
+                        @include Outfit;
+                        font-size: FZ(18);
+                        font-weight: 600;
+                        color: $key-orange;
+                        z-index: 1;
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            top: 42%;
+                            left: 50%;
+                            translate: -50% -50%;
+                            width: 2em;
+                            @include svg-icon-star("ffcd39");
+                            z-index: -1;
+                        }
+                    }
+                    p {
+                        font-size: FZ(22);
+                        font-weight: 700;
+                        letter-spacing: 0.09em;
+                        color: $key-orange;
+                    }
+                    span {
+                        font-size: FZ(20);
+                        letter-spacing: 0.08em;
+                        margin-top: 0.3em;
+                        &:first-of-type {
+                            margin-top: 0.5em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

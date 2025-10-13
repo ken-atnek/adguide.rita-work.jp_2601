@@ -1,8 +1,10 @@
+@use "sass:math";
+
 /* =================================
  * 	ウィンドウ・フォントサイズ設定
  * ------------------------------ */
 // MAX-WIDTH宣言
-$M-width: 1024;
+$M-width: 1366;
 $PcMaxWidth: calc($M-width * 1px);
 
 // フォントサイズ(mx1000)
@@ -41,7 +43,7 @@ $articleMaxWidth: 1155px;
 }
 @mixin Serif {
     font-family:
-        "Zen Old Mincho", "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝Pro",
+        "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝Pro",
         "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
     font-weight: 400;
     font-style: normal;
@@ -52,6 +54,7 @@ $articleMaxWidth: 1155px;
     font-weight: 400;
     font-style: normal;
 }
+
 /* =================================
  * カラー変数
  * ------------------------------ */
@@ -76,7 +79,6 @@ $radius14: 0.875em;
 $radius24: 1.5em;
 $radius40: 2.5em;
 $radius80: 5em;
-
 @mixin top-radius($radius: $radius14) {
     border-top-left-radius: $radius;
     border-top-right-radius: $radius;
@@ -139,3 +141,10 @@ $sp: 480px;
         }
     }
 }
+
+/* =================================
+ * SVG比率
+ * ------------------------------ */
+$aspect-logo-footer: math.div(275, 50);
+$aspect-logo-mark: math.div(59, 56);
+$aspect-logo-hero: math.div(297, 72);

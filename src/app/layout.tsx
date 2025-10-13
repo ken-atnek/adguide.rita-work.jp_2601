@@ -89,6 +89,7 @@ export default function RootLayout({
       <body>
         <SvgDefs />
         <main>{children}</main>
+        <div id="modal-root" />
       </body>
     </html>
   );
