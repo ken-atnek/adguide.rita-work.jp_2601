@@ -26,18 +26,18 @@ export const appealItems: AppealItem[] = [
     id: 2,
     image: AppealImage02,
     alt: '職場の写真',
-    title: '動画で感じる“働く空気感””',
+    title: '動画で感じる“働く空気感”',
     description:
       '映像ならではの臨場感で、職場の魅力をダイレクトに伝え、求職者の安心感を高めます。',
-    link: 'https://www.example.com/',
+    link: 'https://www.yahoo.co.jp/',
   },
   {
     id: 3,
     image: AppealImage03,
     alt: '動画紹介',
-    title: '働き方と福利厚生を“見える化””',
+    title: '働き方と福利厚生を“見える化”',
     description:
       '制度やサポート体制を整理し、応募者が判断しやすい情報をわかりやすく提示します。',
-    link: 'https://www.example.com/',
+    link: 'https://www.yahoo.co.jp/',
   },
 ];

@@ -40,7 +40,7 @@
             position: relative;
             font-size: inherit;
             border: 1px solid #fff;
-            padding: 2em 2em;
+            padding: 2em;
             gap: 2em 0;
             border-radius: $radius24;
             display: flex;
@@ -142,7 +142,6 @@
         grid-template-rows: repeat(2, 1fr);
         gap: 0.5em 0;
         .itemLogo {
-            font-size: inherit;
             grid-row: span 2;
             font-size: FZ(14);
             font-weight: 500;
@@ -160,8 +159,7 @@
         a {
             font-size: FZ(14);
             font-weight: 500;
-            justify-self: end;
-            align-self: flex-end;
+            place-self: flex-end end;
         }
         span {
             @include Outfit;

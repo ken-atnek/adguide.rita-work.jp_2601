@@ -15,6 +15,7 @@
     background-size: contain;
     background-position: center center;
 }
+
 // ↑矢印
 @mixin svg-arrow-top($color) {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 23" fill="%23#{$color}"><path class="cls-1" d="M16.64,7.69L9.37.36c-.48-.49-1.26-.49-1.75,0L.36,7.69c-.48.49-.48,1.27,0,1.76.48.49,1.26.49,1.75,0l5.16-5.2v17.5c0,.69.55,1.25,1.24,1.25s1.24-.56,1.24-1.25V4.25l5.16,5.2c.48.49,1.26.49,1.75,0s.48-1.27,0-1.76Z"/></svg>');

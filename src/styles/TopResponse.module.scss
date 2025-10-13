@@ -54,6 +54,7 @@
         font-size: FZ(16);
     }
 }
+
 /* =================================
  * Q & A
  * ------------------------------ */
@@ -92,8 +93,7 @@
                 border-radius: $radius24 $radius24 $radius24 $radius24;
                 cursor: pointer;
                 padding: 0;
-                transition: background-color 0.3s ease;
-                box-shadow: 3px 3px 2px 0 rgba(178, 126, 52, 0.2);
+                box-shadow: 3px 3px 2px 0 rgb(178 126 52 / 20%);
                 transition: 0.3s ease;
                 padding-left: 2em;
                 &:hover {
@@ -110,7 +110,7 @@
                     width: 62px;
                     aspect-ratio: 1;
                     @include flex-center;
-                    border-radius: 0 $radius14 $radius14 $radius14;
+                    border-radius: 0 $radius14 $radius14;
                     &::before {
                         content: "";
                         position: absolute;
@@ -219,6 +219,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
+
     // overflow: hidden;
     height: 15em; /* 必要に応じて高さを調整 */
     .innerSlide01,
