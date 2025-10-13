@@ -8,6 +8,10 @@
 import type { Metadata } from 'next';
 import { isRealProduction } from '@/lib/env';
 import ContainerHeader from '@/components/Top/ContainerHeader';
+import ContainerFocusList from '@/components/Top/ContainerFocusList';
+import ContainerStructure from '@/components/Top/ContainerStructure';
+import ContainerResponse from '@/components/Top/ContainerResponse';
+import ContainerContact from '@/components/Top/ContainerContact';
 
 export const generateMetadata = (): Metadata => {
   return {
@@ -21,6 +25,10 @@ export default function Home() {
   return (
     <>
       <ContainerHeader />
+      <ContainerFocusList />
+      <ContainerStructure />
+      <ContainerResponse />
+      <ContainerContact />
     </>
   );
 }
