@@ -5,8 +5,10 @@
  * Created: 2025-10-08
  * Last updated: 2025-10-08
  * ======================================= */
-
+'use client';
 import styles from '@/styles/TopStructure.module.scss';
+import clsx from 'clsx';
+import { useScrollTrigger } from '@/hooks/useScrollTrigger';
 import { SHOP_INFO } from '@/config/shop';
 import ImageSeeker from '@/images/FocusList/map-person05.svg';
 import ImageCompany from '@/images/FocusList/map-person07.svg';
@@ -15,6 +17,12 @@ import LogoKpta from '@/images/logo-kpta.svg';
 import Image from 'next/image';
 
 const ContainerStructure = () => {
+  const { ref: block01Ref, isVisible: block01Visible } =
+    useScrollTrigger<HTMLElement>();
+  const { ref: block02Ref, isVisible: block02Visible } =
+    useScrollTrigger<HTMLElement>();
+  const { ref: block03Ref, isVisible: block03Visible } =
+    useScrollTrigger<HTMLElement>();
   return (
     <section className={styles.containerStructure}>
       <h3>
@@ -32,7 +40,12 @@ const ContainerStructure = () => {
         <br />
         一貫したサポートを提供します。厚みのある支援体制が、企業と人材の未来を支えます。
       </p>
-      <article className={styles.blockStructure}>
+      <article
+        className={clsx(styles.blockStructure, {
+          [styles['is-active']]: block01Visible,
+        })}
+        ref={block01Ref}
+      >
         <div className={styles.wrapSide}>
           <div className={styles.itemHead}>
             <Image src={ImageSeeker} alt="求職者" />
@@ -108,7 +121,12 @@ const ContainerStructure = () => {
           </ul>
         </div>
       </article>
-      <article className={styles.blockCompany}>
+      <article
+        className={clsx(styles.blockCompany, {
+          [styles['is-active']]: block02Visible,
+        })}
+        ref={block02Ref}
+      >
         <i className={styles.itemMark}></i>
         <div className={styles.boxJinji}>
           <span>
@@ -123,7 +141,12 @@ const ContainerStructure = () => {
           リタジンジは、RITAが運営する採用代行サービスです。求人掲載を担うリタワークと連携し、企業の採用課題を一気通貫でサポート。現場理解から応募対応、面接調整までを代行し、採用の手間を削減します。リタワークのネットワークと組み合わせることで、応募から定着までの流れをよりスムーズにします。
         </p>
       </article>
-      <article className={styles.blockCompany}>
+      <article
+        className={clsx(styles.blockCompany, {
+          [styles['is-active']]: block03Visible,
+        })}
+        ref={block03Ref}
+      >
         <i className={styles.itemMark}></i>
         <div className={styles.boxKpta}>
           <Image src={LogoKpta} alt="KPTA" />

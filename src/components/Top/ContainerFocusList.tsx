@@ -7,6 +7,8 @@
  * ======================================= */
 
 'use client';
+import { useScrollTrigger } from '@/hooks/useScrollTrigger';
+import clsx from 'clsx';
 import styles from '@/styles/TopFocusList.module.scss';
 import { characters } from '@/data/FocusListMapCharacter';
 import { appealItems } from '@/data/FocusListAppeal';
@@ -15,8 +17,18 @@ import { planTableData } from '@/data/FocusListPlanTable';
 import ExternalLink from '@/components/common/ExternalLink';
 import CheckIcon from '@/images/FocusList/check.svg';
 import Image from 'next/image';
-
 const ContainerFocusList = () => {
+  const { ref: block01Ref, isVisible: block01Visible } =
+    useScrollTrigger<HTMLDivElement>();
+  const { ref: block02Ref, isVisible: block02Visible } =
+    useScrollTrigger<HTMLUListElement>();
+  const { ref: block03Ref, isVisible: block03Visible } =
+    useScrollTrigger<HTMLUListElement>();
+  const { ref: block04Ref, isVisible: block04Visible } =
+    useScrollTrigger<HTMLUListElement>();
+  const { ref: block0402Ref, isVisible: block0402Visible } =
+    useScrollTrigger<HTMLDivElement>();
+
   return (
     <section className={styles.containerFocusList}>
       <article className={styles.blockFocus01}>
@@ -29,7 +41,12 @@ const ContainerFocusList = () => {
         <p className={styles.sidebarH3}>
           経験者が集まるから、即戦力に出会える。
         </p>
-        <div className={styles.boxContents}>
+        <div
+          className={clsx(styles.boxContents, {
+            [styles['is-active']]: block01Visible,
+          })}
+          ref={block01Ref}
+        >
           <div className={styles.wrapText}>
             <h4>
               <span>熊本県特化の強み</span>
@@ -42,18 +59,21 @@ const ContainerFocusList = () => {
           </div>
           <div className={styles.wrapMap}>
             <div className={styles.innerMap}>
-              {characters.map((character) => (
+              {characters.map((character, index) => (
                 <div
                   key={character.id}
                   className={styles.itemCharacter}
-                  style={character.style}
+                  style={{
+                    ...character.style,
+                    transitionDelay: `${index * 0.081}s`, // 0.1秒ずつ遅延
+                  }}
                 >
                   <Image src={character.src} alt={character.alt} width={49} />
                 </div>
               ))}
             </div>
           </div>
-          <div className={styles.wrapText}>
+          <div className={styles.wrapText02}>
             <h4>
               <span>医療 & 介護職に特化</span>
             </h4>
@@ -74,7 +94,12 @@ const ContainerFocusList = () => {
         </h3>
         <p className={styles.sidebarH3}>リアルな情報が採用競争力を生む。</p>
         <p className={styles.notice}>※有料プランの方のみご利用可能</p>
-        <ul>
+        <ul
+          ref={block02Ref}
+          className={clsx({
+            [styles['is-active']]: block02Visible,
+          })}
+        >
           {appealItems.map((item) => (
             <li key={item.id} className={`${styles[`item${item.id}`]}`}>
               <div className={styles.wrapImage}>
@@ -103,7 +128,12 @@ const ContainerFocusList = () => {
           本当の価値を引き出し、長く活躍できる人材を紹介。
         </p>
         <div className={styles.boxContents}>
-          <ul>
+          <ul
+            ref={block03Ref}
+            className={clsx({
+              [styles['is-active']]: block03Visible,
+            })}
+          >
             {supportItems.map((item) => (
               <li key={item.id}>
                 <h4>{item.title}</h4>
@@ -129,7 +159,12 @@ const ContainerFocusList = () => {
         <p className={styles.sidebarH3}>
           細かなオプションなし、わかりやすい3つのプラン。
         </p>
-        <ul className={styles.planTable}>
+        <ul
+          className={clsx(styles.planTable, {
+            [styles['is-active']]: block04Visible,
+          })}
+          ref={block04Ref}
+        >
           <li className={styles.planHeader}>
             {planTableData.headers.map((header, index) => (
               <h4 key={`header-${index}`}>
@@ -148,7 +183,13 @@ const ContainerFocusList = () => {
             ))}
           </li>
           {planTableData.rows.map((row, rowIndex) => (
-            <li key={rowIndex} className={styles.planRow}>
+            <li
+              key={rowIndex}
+              className={styles.planRow}
+              style={{
+                transitionDelay: `${rowIndex * 0.1}s`, // 0.1秒ずつ遅延
+              }}
+            >
               <h5>
                 <span>{row.label}</span>
               </h5>
@@ -172,7 +213,12 @@ const ContainerFocusList = () => {
           ))}
         </ul>
         <div className={styles.itemPlus}></div>
-        <div className={styles.boxBannerPlan}>
+        <div
+          className={clsx(styles.boxBannerPlan, {
+            [styles['is-active']]: block0402Visible,
+          })}
+          ref={block0402Ref}
+        >
           <div className={styles.itemTitle}>
             <h4>
               <i>プレミアムプランをご契約の方</i>

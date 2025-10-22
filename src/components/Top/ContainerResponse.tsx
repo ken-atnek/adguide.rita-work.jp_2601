@@ -7,7 +7,7 @@
  * ======================================= */
 
 import styles from '@/styles/TopResponse.module.scss';
-import ImageMascot01 from '@/images/mascot01-02.webp';
+import ImageMascot01 from '@/images/mascot01.webp';
 import ImageMascot02 from '@/images/mascot03.webp';
 import Image from 'next/image';
 import BlockFAQ from '@/components/Top/BlockFAQ';

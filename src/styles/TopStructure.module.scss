@@ -81,6 +81,8 @@
     grid-template-columns: 1fr auto 1fr auto 1fr;
     grid-template-rows: repeat(2, 1fr);
     gap: 4em 8px;
+    opacity: 0;
+    translate: 0 10rem;
     .wrapSide {
         position: relative;
         font-size: inherit;
@@ -266,6 +268,11 @@
             }
         }
     }
+    &.is-active {
+        opacity: 1;
+        translate: 0;
+        transition: 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
 }
 .blockCompany {
     width: 100%;
@@ -278,6 +285,8 @@
     grid-template-columns: auto 1fr;
     grid-template-rows: auto 1fr;
     gap: 1em 2em;
+    opacity: 0;
+    translate: 0 10rem;
     .itemMark {
         position: absolute;
         top: 1.2em;
@@ -348,5 +357,10 @@
         font-size: FZ(18);
         line-height: 2em;
         text-align: justify;
+    }
+    &.is-active {
+        opacity: 1;
+        translate: 0;
+        transition: 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 }

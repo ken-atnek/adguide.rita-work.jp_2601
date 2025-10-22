@@ -4,24 +4,13 @@
  * Created: 2025-10-01
  * Last updated: 2025-10-01
  * ======================================= */
+/* eslint-disable @next/next/no-page-custom-font */
 
 import type { Metadata } from 'next';
 import '@/styles/globals.scss';
-import { Outfit, Zen_Kaku_Gothic_Antique } from 'next/font/google';
 import SvgDefs from '@/components/SvgDefs';
 
 import { isRealProduction } from '@/lib/env';
-
-const outfit = Outfit({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  display: 'swap',
-});
-const zenKakuGothicAntique = Zen_Kaku_Gothic_Antique({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '700', '900'],
-  display: 'swap',
-});
 
 // 本番のみ metadataBase を設定
 const metadataBase = isRealProduction
@@ -71,11 +60,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="ja"
-      data-scroll-behavior="smooth"
-      className={`${outfit.className} ${zenKakuGothicAntique.className}`}
-    >
+    <html lang="ja" data-scroll-behavior="smooth">
       <head>
         <meta
           name="format-detection"
@@ -84,6 +69,10 @@ export default function RootLayout({
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Zen+Kaku+Gothic+Antique:wght@400;500;700;900&display=swap"
         />
       </head>
       <body>

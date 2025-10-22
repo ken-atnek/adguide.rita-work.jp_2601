@@ -73,7 +73,7 @@ const ContainerContact = () => {
               <use href="#svg_logoFooter" />
             </svg>
           </div>
-          <ExternalLink href="#">プライバシーポリシ</ExternalLink>
+          <ExternalLink href="#">プライバシーポリシー</ExternalLink>
           <span>© 2025 RITAWORK</span>
         </div>
       </article>

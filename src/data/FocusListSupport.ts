@@ -7,13 +7,13 @@ export interface SupportItem {
 export const supportItems: SupportItem[] = [
   {
     id: 1,
-    title: '不安を解消する\n相談サポート”',
+    title: '不安を解消する\n相談サポート',
     description:
       '求職者が現在の職場や検討中の職場への不安を事前に相談できるから、入職後のミスマッチを防ぎます。',
   },
   {
     id: 2,
-    title: 'ノウハウで応募者の\n質を向上”',
+    title: 'ノウハウで応募者の\n質を向上',
     description:
       '就職活動の進め方や面接対策をサポートすることで、準備の整った応募者が集まり、採用の質が高まります。',
   },

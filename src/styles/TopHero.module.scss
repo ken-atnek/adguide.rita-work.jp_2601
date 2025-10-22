@@ -21,20 +21,25 @@
         font-size: inherit;
         padding: 0.5em 1em;
         span {
+            display: inline-block;
             font-size: FZ(18);
             letter-spacing: 0.3em;
+            position: relative;
+            opacity: 0;
+            translate: -2em;
         }
         h1 {
             position: absolute;
-            width: max-content;
+            width: 46rem;
             top: 0;
             right: 0;
             background-color: $key-orange;
             display: flex;
             align-items: center;
+            justify-content: center;
             font-size: FZ(14);
             gap: 0 1em;
-            padding: 1em;
+            padding: 1em 2em;
             border-bottom-left-radius: 1rem;
             z-index: 3;
             &::before {
@@ -54,8 +59,22 @@
     }
     .blockTop {
         padding: 0 4vw;
-        background: url("/images/hero.webp") no-repeat center center / cover;
         z-index: 2;
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+        }
+        &::before {
+            background: url("/images/hero.webp") no-repeat center center / cover;
+        }
+        &::after {
+            background: url("../images/bg.webp");
+            mix-blend-mode: color-dodge;
+            opacity: 0.8;
+        }
         .catch {
             color: #fffbf4;
             font-weight: 900;
@@ -64,9 +83,27 @@
             justify-content: space-between;
             gap: 26vw 0;
             font-size: 14vw;
-            translate: 0 0.1em;
+            translate: 0 0.2em;
             span {
+                display: inline-block;
                 letter-spacing: 0.08em;
+                opacity: 0;
+                translate: -0.3em;
+                filter: blur(0.5rem);
+                i {
+                    position: relative;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        left: 50%;
+                        translate: -50%;
+                        bottom: calc(100% + 0.01em);
+                        width: 2.7rem;
+                        aspect-ratio: 1;
+                        border-radius: 50%;
+                        background-color: #fffbf4;
+                    }
+                }
             }
         }
         .svgText {
@@ -75,6 +112,8 @@
             top: 8vw;
             font-size: inherit;
             width: 25vw;
+            opacity: 0;
+            translate: 3rem;
             svg {
                 aspect-ratio: 334/148;
                 fill: $other-black;
@@ -83,7 +122,7 @@
         .linkContact {
             position: absolute;
             right: 8vw;
-            bottom: 14vw;
+            bottom: 15vw;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -91,34 +130,74 @@
             font-weight: 700;
             color: #fff;
             letter-spacing: 0.04em;
-            background-color: $base-blue;
             padding: 0.8em 2em;
-            border-radius: 100vmax;
+            z-index: 2;
+            animation-name: move-link;
+            animation-duration: 1s;
+            animation-direction: alternate;
+            animation-timing-function: ease-out;
+            animation-iteration-count: infinite;
+            opacity: 0;
             &::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background-color: $base-blue;
+                border-radius: 100vmax;
+                z-index: -1;
+                transition: 0.3s ease-out;
+            }
+            &::before {
                 content: "";
                 position: absolute;
                 left: 50%;
                 translate: -50%;
-                width: 60%;
+                width: 50%;
                 background: url("../images/mascot01.webp") no-repeat center
                     center/contain;
-                aspect-ratio: 141/188;
-                bottom: 35%;
+                aspect-ratio: 194/327;
+                bottom: 23%;
                 z-index: -1;
             }
             span {
                 font-size: 0.8em;
                 font-weight: 500;
             }
+            @include hover {
+                &::after {
+                    background-color: $hover-blue;
+                }
+            }
+            @keyframes move-link {
+                0% {
+                    translate: 0;
+                }
+                100% {
+                    translate: 0 1rem;
+                }
+            }
         }
     }
     .blockBottom {
-        background-color: $main-orange;
-        @include bottom-radius($radius80);
         display: flex;
         justify-content: center;
-        padding: 4em 4vw 5em;
+        padding: 6em 4vw;
         gap: 0 3em;
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            @include bottom-radius($radius80);
+        }
+        &::before {
+            background-color: $main-orange;
+        }
+        &::after {
+            background: url("../images/bg.webp");
+            mix-blend-mode: color-dodge;
+            opacity: 0.8;
+        }
         article {
             display: flex;
             justify-content: space-between;
@@ -180,6 +259,7 @@
                     padding: 0.5em 1.4em;
                     border-radius: 100vmax;
                     letter-spacing: 0.12em;
+                    transition: 0.3s ease-out;
                     &::before {
                         content: "";
                         position: absolute;
@@ -188,8 +268,51 @@
                         right: 1.2em;
                         @include svg-arrow-bottom("fff");
                         width: 0.5em;
+                        transition: 0.3s ease-out;
+                    }
+                    @include hover {
+                        background-color: $hover-blue;
+                        &::before {
+                            translate: 0 20%;
+                        }
                     }
                 }
+            }
+        }
+    }
+    &.is-active {
+        .boxH1 {
+            span {
+                opacity: 1;
+                translate: 0;
+                transition: 0.2s ease-out;
+            }
+        }
+        .blockTop {
+            &::before {
+                transition: 10s;
+            }
+            .catch {
+                span {
+                    opacity: 1;
+                    translate: 0;
+                    filter: blur(0);
+                }
+                .textHead {
+                    @include transition-move(0.5s, 0.1s);
+                }
+                .textBottom {
+                    @include transition-move(0.5s, 0.2s);
+                }
+            }
+            .svgText {
+                opacity: 1;
+                translate: 0;
+                @include transition-move(0.5s, 0.5s);
+            }
+            .linkContact {
+                opacity: 1;
+                @include transition-move(1.4s, 1s);
             }
         }
     }

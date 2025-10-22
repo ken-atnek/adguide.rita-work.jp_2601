@@ -5,13 +5,18 @@
  * Created: 2025-10-01
  * Last updated: 2025-10-01
  * ======================================= */
-
+'use client';
+import { useScrollTrigger } from '@/hooks/useScrollTrigger';
 import styles from '@/styles/TopHero.module.scss';
 import { SHOP_INFO } from '@/config/shop';
 
 const ContainerHeader = () => {
+  const { ref, isVisible } = useScrollTrigger<HTMLLIElement>();
   return (
-    <header className={styles.containerHeader}>
+    <header
+      className={`${styles.containerHeader} ${isVisible ? styles['is-active'] : ''}`}
+      ref={ref}
+    >
       <div className={styles.boxH1}>
         <span>求人掲載をご検討の事業者様へ</span>
         <h1>
@@ -24,8 +29,8 @@ const ContainerHeader = () => {
       </div>
       <section className={styles.blockTop}>
         <p className={styles.catch}>
-          <span>採用にも</span>
-          <span>
+          <span className={styles.textHead}>採用にも</span>
+          <span className={styles.textBottom}>
             <i>勝</i>
             <i>ち</i>
             <i>筋</i>がある

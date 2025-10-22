@@ -35,9 +35,9 @@ $articleMaxWidth: 1155px;
 /* フォント設定 */
 @mixin SunSerif {
     font-family:
-        var(--font-outfit), var(--font-zen-kaku-gothic-antique),
-        "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans",
-        "BIZ UDPGothic", Meiryo, sans-serif;
+        Outfit, "Zen Kaku Gothic Antique", "Helvetica Neue", Arial,
+        "Hiragino Kaku Gothic ProN", "Hiragino Sans", "BIZ UDPGothic", Meiryo,
+        sans-serif;
     font-weight: 400;
     font-style: normal;
 }
@@ -48,9 +48,12 @@ $articleMaxWidth: 1155px;
     font-weight: 400;
     font-style: normal;
 }
+@mixin ZenKakuBlack {
+    font-family: "Zen Kaku Gothic Antique", sans-serif;
+    font-weight: 900; /* Black */
+}
 @mixin Outfit {
-    font-family:
-        var(--font-outfit, "Outfit"), "Helvetica Neue", Arial, sans-serif;
+    font-family: Outfit, "Helvetica Neue", Arial, sans-serif;
     font-weight: 400;
     font-style: normal;
 }
@@ -65,6 +68,7 @@ $main-black: #574232;
 $other-black: #362f24;
 $font-black: #726b62;
 $base-blue: #4c6be8;
+$hover-blue: #3051d8;
 $main-orange: #f29400;
 $key-orange: #ff7b00;
 $sub-orange: #ffcd39;
@@ -148,3 +152,10 @@ $sp: 480px;
 $aspect-logo-footer: math.div(275, 50);
 $aspect-logo-mark: math.div(59, 56);
 $aspect-logo-hero: math.div(297, 72);
+
+/* =================================
+ * トランジッション
+ * ------------------------------ */
+@mixin transition-move($time: 0.3s, $deray: 0s) {
+    transition: $time ease-out $deray;
+}
