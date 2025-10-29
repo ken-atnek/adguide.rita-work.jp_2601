@@ -195,6 +195,7 @@
                     p {
                         font-size: FZ(20);
                         font-weight: 700;
+                        line-height: 1.8em;
                         &::before {
                             content: "A";
                             font-size: 28px;
@@ -241,6 +242,10 @@
             display: block;
             font-size: inherit;
             width: 7.8em;
+            &.mascot02 {
+                aspect-ratio: 112/203;
+                width: 7em;
+            }
         }
     }
     .innerSlide01 {

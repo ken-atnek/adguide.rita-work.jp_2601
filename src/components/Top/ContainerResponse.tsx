@@ -30,13 +30,21 @@ const ContainerResponse = () => {
           <span>rita</span>
           <Image src={ImageMascot01} alt="マスコット1" />
           <span>work</span>
-          <Image src={ImageMascot02} alt="マスコット2" />
+          <Image
+            src={ImageMascot02}
+            alt="マスコット2"
+            className={styles.mascot02}
+          />
         </div>
         <div className={styles.innerSlide02}>
           <span>rita</span>
           <Image src={ImageMascot01} alt="マスコット1" />
           <span>work</span>
-          <Image src={ImageMascot02} alt="マスコット2" />
+          <Image
+            src={ImageMascot02}
+            alt="マスコット2"
+            className={styles.mascot02}
+          />
         </div>
       </div>
     </section>

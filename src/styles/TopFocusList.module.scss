@@ -52,8 +52,10 @@
         i {
             background-image: linear-gradient(
                 to bottom,
-                transparent 85%,
-                $sub-orange 85%
+                transparent 75%,
+                $sub-orange 75%,
+                $sub-orange 95%,
+                transparent 95%
             );
         }
     }
@@ -126,10 +128,10 @@
                     position: absolute;
                     top: 7%;
                     left: 20%;
-                    width: 20%;
+                    width: 18%;
                     background: url("../images/mascot03.webp") no-repeat center
                         center/contain;
-                    aspect-ratio: 168/305;
+                    aspect-ratio: 112/203;
                 }
                 .itemCharacter {
                     position: absolute;
