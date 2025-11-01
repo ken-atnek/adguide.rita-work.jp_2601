@@ -11,7 +11,7 @@ import styles from '@/styles/TopHero.module.scss';
 import { SHOP_INFO } from '@/config/shop';
 
 const ContainerHeader = () => {
-  const { ref, isVisible } = useScrollTrigger<HTMLLIElement>();
+  const { ref, isVisible } = useScrollTrigger<HTMLElement>();
   return (
     <header
       className={`${styles.containerHeader} ${isVisible ? styles['is-active'] : ''}`}
@@ -27,7 +27,7 @@ const ContainerHeader = () => {
           </svg>
         </h1>
       </div>
-      <section className={styles.blockTop}>
+      <div className={styles.blockTop}>
         <p className={styles.catch}>
           <span className={styles.textHead}>採用にも</span>
           <span className={styles.textBottom}>
@@ -46,7 +46,7 @@ const ContainerHeader = () => {
           <span>求人掲載の</span>
           ご相談・お申し込み
         </a>
-      </section>
+      </div>
       <section className={styles.blockBottom}>
         <article>
           <div className={styles.text}>

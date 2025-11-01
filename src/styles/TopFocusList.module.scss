@@ -229,9 +229,11 @@
                 font-size: inherit;
                 background-color: $key-orange;
                 border-radius: $radius24 0 0 $radius24;
+                overflow: hidden;
                 img {
                     width: 100%;
                     object-fit: cover;
+                    transition: 0.4s ease-out;
                 }
             }
             .wrapText {
@@ -283,6 +285,13 @@
                     img {
                         max-width: 274px;
                         object-position: center bottom;
+                    }
+                }
+            }
+            &:has(.itemPageLink:hover) {
+                .wrapImage {
+                    img {
+                        scale: 1.05;
                     }
                 }
             }
@@ -440,7 +449,10 @@
             grid-template-columns: subgrid;
             font-size: inherit;
             min-height: 3.6em;
-            clip-path: inset(100% 0 0 0);
+
+            // clip-path: inset(100% 0 0 0);
+            // opacity: 0;
+            translate: 0 3rem;
             h5 {
                 font-size: inherit;
                 background-color: $other-black;
@@ -538,9 +550,11 @@
         }
         &.is-active {
             li {
-                // opacity: 1;
-                clip-path: inset(0);
-                @include transition-move(0.8s);
+                opacity: 1;
+
+                // clip-path: inset(0);
+                translate: 0;
+                @include transition-move(0.3s);
             }
         }
     }
