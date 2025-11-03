@@ -15,6 +15,10 @@
     z-index: 2;
     background-color: $base-white;
     @include bottom-radius($radius80);
+    @include sp {
+        padding-bottom: 8vw;
+        @include bottom-radius($radius-sp80);
+    }
     h2 {
         position: absolute;
         top: 0;
@@ -31,6 +35,12 @@
         border-radius: 0 100vmax 100vmax 0;
         padding-left: 5.4em;
         letter-spacing: 0.12em;
+        @include sp {
+            font-size: FZ(16);
+            width: 90vw;
+            padding-left: 12vw;
+            height: 12vw;
+        }
         &::before {
             content: var(--data-number, "");
             position: absolute;
@@ -42,6 +52,10 @@
             @include Outfit;
             font-weight: 600;
             letter-spacing: 0.05em;
+            @include sp {
+                left: 2vw;
+                font-size: 1.6em;
+            }
         }
     }
     h3 {
@@ -49,6 +63,10 @@
         margin-top: 1em;
         font-weight: 700;
         letter-spacing: 0.08em;
+        @include sp {
+            font-size: FZ(30);
+            text-align: center;
+        }
         i {
             background-image: linear-gradient(
                 to bottom,
@@ -64,6 +82,9 @@
         font-weight: 700;
         letter-spacing: 0.12em;
         margin-top: 0.8em;
+        @include sp {
+            font-size: FZ(14);
+        }
     }
     .itemPageLink {
         position: absolute;
@@ -89,7 +110,7 @@
 }
 
 /* =================================
- * 熊本県の「医療&介護」特化型転職サイト
+ * 01.熊本県の「医療&介護」特化型転職サイト
  * ------------------------------ */
 .blockFocus01 {
     display: flex;
@@ -97,6 +118,9 @@
     align-items: center;
     padding-top: 4em;
     padding-bottom: clamp(20rem, 23vw, 33rem);
+    @include sp {
+        padding-top: 12vw;
+    }
     .boxContents {
         display: flex;
         justify-content: space-between;
@@ -105,6 +129,9 @@
         align-items: center;
         font-size: inherit;
         margin-top: 10em;
+        @include sp {
+            margin-top: 12vw;
+        }
         .wrapMap {
             flex: 1;
             position: relative;
@@ -193,7 +220,7 @@
 }
 
 /* =================================
- * 圧倒的な事業所のリサーチ＆アピール力
+ * 02.圧倒的な事業所のリサーチ＆アピール力
  * ------------------------------ */
 .blockFocus02 {
     display: flex;
@@ -201,11 +228,17 @@
     align-items: center;
     padding-top: 5em;
     padding-bottom: 6em;
+    @include sp {
+        padding-top: 12vw;
+    }
     .notice {
         font-size: FZ(20);
         letter-spacing: 0.3em;
         font-weight: 700;
         margin-top: 3em;
+        @include sp {
+            font-size: FZ(14);
+        }
     }
     ul {
         position: relative;
@@ -217,6 +250,9 @@
         gap: 2em 0;
         width: 100%;
         max-width: 106rem;
+        @include sp {
+            gap: 4vw 0;
+        }
         li {
             font-size: inherit;
             grid-column: span 2;
@@ -247,14 +283,23 @@
                 padding-left: 3em;
                 padding-right: 7em;
                 max-width: 63rem;
+                @include sp {
+                    padding: 4vw;
+                }
                 h4 {
                     font-size: FZ(24);
                     font-weight: 700;
+                    @include sp {
+                        font-size: FZ(18);
+                    }
                 }
                 p {
                     font-size: FZ(18);
                     line-height: 1.8em;
                     margin-top: 1em;
+                    @include sp {
+                        font-size: FZ(16);
+                    }
                 }
                 .itemPageLink {
                     bottom: 2em;
@@ -443,6 +488,10 @@
         max-width: $articleMaxWidth;
         grid-template-columns: auto 1fr 1fr 1fr;
         gap: 1px;
+        @include sp {
+            overflow-y: hidden;
+            overflow-x: scroll;
+        }
         li {
             grid-column: span 4;
             display: grid;
@@ -460,8 +509,15 @@
                 padding: 0.8em 1.4em;
                 display: flex;
                 align-items: center;
+                @include sp {
+                    padding: 2vw;
+                }
                 span {
                     font-size: FZ(18);
+                    @include sp {
+                        font-size: FZ(12);
+                        width: max-content;
+                    }
                 }
             }
             & > * {
@@ -482,9 +538,16 @@
                     justify-content: center;
                     padding: 1.6em 0 1em;
                     border-radius: $radius14 $radius14 0 0;
+                    @include sp {
+                        padding-inline: 2vw;
+                    }
                     span {
                         font-size: FZ(24);
                         font-weight: 700;
+                        @include sp {
+                            font-size: FZ(16);
+                            width: max-content;
+                        }
                     }
                     &:first-of-type {
                         grid-column-start: 2;
@@ -500,10 +563,18 @@
                 .price {
                     font-size: inherit;
                     @include flex-center;
+                    @include sp {
+                        padding-inline: 2vw;
+                        width: 100%;
+                        min-width: max-content;
+                    }
                     span {
                         @include Outfit;
                         font-size: FZ(34);
                         font-weight: 600;
+                        @include sp {
+                            font-size: FZ(24);
+                        }
                         &::after {
                             content: "円＋税";
                             font-weight: 400;
@@ -601,6 +672,10 @@
                 font-size: FZ(24);
                 font-weight: 700;
                 line-height: 1em;
+                @include sp {
+                    font-size: FZ(20);
+                    line-height: 1.4em;
+                }
                 i {
                     line-height: 1em;
                     background-image: linear-gradient(
@@ -621,6 +696,9 @@
             display: flex;
             flex-direction: column;
             padding: 3em;
+            @include sp {
+                padding: 4vw;
+            }
             .itemPageLink {
                 bottom: 3em;
                 right: 3em;
@@ -631,6 +709,13 @@
                 font-size: inherit;
                 gap: 0 1em;
                 padding-left: 1em;
+                @include sp {
+                    display: grid;
+                    grid-template-columns: auto 1fr;
+                    padding-top: 2vw;
+                    padding-left: unset;
+                    gap: 6vw 2vw;
+                }
                 h5 {
                     position: relative;
                     display: flex;
@@ -639,6 +724,14 @@
                     font-size: FZ(36);
                     font-weight: 700;
                     gap: 0 1em;
+                    @include sp {
+                        grid-column: span 2;
+                        font-size: FZ(24);
+                        justify-self: center;
+                        width: 100%;
+                        justify-content: center;
+                        padding-right: 4vw;
+                    }
                     span {
                         position: relative;
                         text-align: center;
@@ -675,14 +768,23 @@
                     background-color: $key-orange;
                     border-radius: $radius14;
                     padding: 0.8em 1.4em;
+                    @include sp {
+                        padding: 2vw 4vw;
+                    }
                     h6 {
                         font-size: FZ(24);
                         font-weight: 700;
+                        @include sp {
+                            font-size: FZ(16);
+                        }
                     }
                     span {
                         @include Outfit;
                         font-size: FZ(34);
                         font-weight: 600;
+                        @include sp {
+                            font-size: FZ(24);
+                        }
                         i {
                             @include SunSerif;
                             font-weight: 500;
@@ -699,6 +801,9 @@
                     padding-inline: 1.4em;
                     border-radius: 0 $radius14 $radius14;
                     position: relative;
+                    @include sp {
+                        padding-inline: 2vw;
+                    }
                     &::before {
                         content: "";
                         position: absolute;
@@ -711,6 +816,9 @@
                         @include Outfit;
                         font-size: FZ(48);
                         font-weight: 600;
+                        @include sp {
+                            font-size: FZ(28);
+                        }
                         &::before {
                             content: "+";
                             font-weight: 400;
@@ -722,6 +830,9 @@
                         font-weight: 500;
                         margin-left: 0.2em;
                         margin-top: 0.6em;
+                        @include sp {
+                            font-size: FZ(14);
+                        }
                     }
                 }
             }
@@ -734,6 +845,12 @@
                 width: 70%;
                 min-width: 68rem;
                 margin-top: 3em;
+                @include sp {
+                    width: 100%;
+                    min-width: unset;
+                    margin-bottom: 18vw;
+                    margin-top: 6vw;
+                }
                 &::after {
                     content: "";
                     position: absolute;
@@ -743,6 +860,9 @@
                     background: url("../images/mascot05.webp") no-repeat center
                         center / contain;
                     aspect-ratio: 221/335;
+                    @include sp {
+                        display: none;
+                    }
                 }
                 li {
                     position: relative;
@@ -754,6 +874,10 @@
                     padding-right: 1em;
                     padding-block: 0.8em;
                     border-radius: $radius14;
+                    @include sp {
+                        padding-left: 10vw;
+                        padding-right: 2vw;
+                    }
                     i {
                         position: absolute;
                         left: 2em;
@@ -763,6 +887,11 @@
                         font-weight: 600;
                         color: $key-orange;
                         z-index: 1;
+                        @include sp {
+                            left: 4vw;
+                            font-size: FZ(14);
+                            top: 3vw;
+                        }
                         &::before {
                             content: "";
                             position: absolute;
@@ -779,11 +908,17 @@
                         font-weight: 700;
                         letter-spacing: 0.09em;
                         color: $key-orange;
+                        @include sp {
+                            font-size: FZ(16);
+                        }
                     }
                     span {
                         font-size: FZ(20);
                         letter-spacing: 0.08em;
                         margin-top: 0.3em;
+                        @include sp {
+                            font-size: FZ(14);
+                        }
                         &:first-of-type {
                             margin-top: 0.5em;
                         }

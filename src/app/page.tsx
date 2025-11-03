@@ -26,7 +26,7 @@ export default function Home() {
     <>
       <ContainerHeader />
       <ContainerFocusList />
-      <ContainerStructure />ｔ
+      <ContainerStructure />
       <ContainerResponse />
       <ContainerContact />
     </>
