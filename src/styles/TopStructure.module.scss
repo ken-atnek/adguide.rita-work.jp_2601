@@ -287,6 +287,10 @@
     gap: 1em 2em;
     opacity: 0;
     translate: 0 10rem;
+    @include sp {
+        display: flex;
+        flex-direction: column;
+    }
     .itemMark {
         position: absolute;
         top: 1.2em;
