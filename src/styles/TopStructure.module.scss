@@ -31,12 +31,20 @@
         font-size: FZ(40);
         font-weight: 700;
         letter-spacing: 0.12em;
+        @include sp {
+            font-size: FZ(24);
+            font-weight: 700;
+        }
         svg {
             font-size: inherit;
             fill: #fff;
             width: 27rem;
             aspect-ratio: $aspect-logo-footer;
             margin-right: 0.2em;
+            @include sp {
+                width: 60vw;
+                margin-right: 2vw;
+            }
         }
     }
     h4 {
@@ -45,6 +53,10 @@
         font-weight: 700;
         letter-spacing: 0.08em;
         align-self: center;
+        @include sp {
+            font-size: FZ(24);
+            line-height: 1.4em;
+        }
         i {
             line-height: 1em;
             background-image: linear-gradient(
@@ -64,6 +76,12 @@
         font-weight: 700;
         letter-spacing: 0.08em;
         margin-top: 1.6em;
+        @include sp {
+            font-size: FZ(16);
+            text-align: justify;
+            line-height: 1.4em;
+            margin-top: 4vw;
+        }
     }
 }
 
@@ -83,7 +101,14 @@
     gap: 4em 8px;
     opacity: 0;
     translate: 0 10rem;
-    .wrapSide {
+    @include sp {
+        grid-template-rows: unset;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 4vw;
+        gap: 4vw 0;
+    }
+    .wrapSideHead,
+    .wrapSideFoot {
         position: relative;
         font-size: inherit;
         background-color: #fff;
@@ -93,6 +118,13 @@
         padding: 1.4em;
         grid-row: span 2;
         gap: 1.4em 0;
+        @include sp {
+            grid-column: span 4;
+            display: grid;
+            grid-template-columns: 40% 1fr;
+            gap: 2vw 4vw;
+            padding: 2vw;
+        }
         .itemHead {
             font-size: inherit;
             background-color: $bg-white;
@@ -103,6 +135,11 @@
             padding: 1.4em;
             justify-content: space-between;
             aspect-ratio: 226/229;
+            @include sp {
+                padding: 6vw;
+                border-radius: $radius-sp24;
+                grid-row: span 2;
+            }
             img {
                 flex: 1;
                 width: 100%;
@@ -114,6 +151,9 @@
                 font-size: FZ(24);
                 font-weight: 700;
                 margin-top: 0.5em;
+                @include sp {
+                    font-size: FZ(16);
+                }
             }
         }
         h5 {
@@ -121,6 +161,9 @@
             font-size: FZ(18);
             font-weight: 700;
             margin-top: 0.8em;
+            @include sp {
+                text-align: center;
+            }
         }
         ul {
             position: relative;
@@ -132,19 +175,42 @@
                 font-weight: 500;
                 padding-block: 1.2em;
                 border-bottom: 1px solid;
+                @include sp {
+                    padding-block: 1vw;
+                    font-size: FZ(14);
+                }
                 &:first-of-type {
                     border-top: 1px solid;
                 }
             }
         }
     }
-    .wrapArrow {
+    .wrapSideHead {
+        @include sp {
+            order: 3;
+        }
+    }
+    .wrapSideFoot {
+        @include sp {
+            order: -1;
+        }
+    }
+    .wrapArrowHead,
+    .wrapArrowFoot {
         font-size: inherit;
         grid-row: span 2;
         display: grid;
         grid-template-rows: subgrid;
         align-items: center;
         min-width: 10rem;
+        @include sp {
+            grid-column: span 4;
+            grid-template-columns: subgrid;
+            min-width: unset;
+            grid-template-rows: unset;
+            align-items: unset;
+            gap: 0 4vw;
+        }
         .ArrowTop,
         .ArrowBottom {
             font-size: inherit;
@@ -153,11 +219,28 @@
             align-items: center;
             color: $key-orange;
             gap: 5em 0;
+            @include sp {
+                grid-column: span 2;
+                display: grid;
+                grid-template-columns: subgrid;
+                gap: 0 2vw;
+            }
             span {
                 width: 100%;
                 position: relative;
                 font-weight: 500;
                 text-align: center;
+                @include sp {
+                    font-size: FZ(12);
+                    background-color: $main-orange;
+                    color: #fff;
+                    border-radius: 1vw;
+                    display: flex;
+                    align-self: stretch;
+                    align-items: center;
+                    justify-content: center;
+                    padding-block: 1vw;
+                }
                 &::before {
                     content: "";
                     position: absolute;
@@ -165,6 +248,14 @@
                     left: 0;
                     height: 2px;
                     background-color: $key-orange;
+                    @include sp {
+                        height: calc(100% + 8vw);
+                        width: 2px;
+                        top: -4vw;
+                        z-index: -1;
+                        left: 50%;
+                        translate: -50%;
+                    }
                 }
                 &::after {
                     content: "";
@@ -172,28 +263,60 @@
                     width: 1rem;
                     aspect-ratio: 1/1.2;
                     background-color: $key-orange;
+                    @include sp {
+                        aspect-ratio: 1.2;
+                    }
                 }
                 &:nth-of-type(1) {
                     &::before {
                         top: calc(100% + 10px);
+                        @include sp {
+                            top: -4vw;
+                        }
                     }
                     &::after {
                         left: 0;
                         top: calc(100% + 5px);
                         clip-path: polygon(0 50%, 100% 0, 100% 100%);
+                        @include sp {
+                            clip-path: polygon(0 0, 100% 0, 50% 100%);
+                            top: unset;
+                            bottom: -4vw;
+                            left: 50%;
+                            translate: -50%;
+                        }
                     }
                 }
                 &:nth-of-type(2) {
                     &::before {
                         bottom: calc(100% + 10px);
+                        @include sp {
+                            bottom: unset;
+                            top: -4vw;
+                        }
                     }
                     &::after {
                         right: 0;
                         bottom: calc(100% + 5px);
                         clip-path: polygon(0 0, 100% 50%, 0 100%);
+                        @include sp {
+                            clip-path: polygon(0 100%, 100% 100%, 50% 0);
+                            @include sp {
+                                right: unset;
+                                bottom: unset;
+                                left: 50%;
+                                translate: -50%;
+                                top: -4vw;
+                            }
+                        }
                     }
                 }
             }
+        }
+    }
+    .wrapArrowHead {
+        @include sp {
+            order: 2;
         }
     }
     .wrapRIta {
@@ -201,6 +324,14 @@
         grid-row: span 2;
         display: grid;
         grid-template-rows: subgrid;
+        @include sp {
+            grid-row: unset;
+            grid-column: span 4;
+            grid-template-rows: unset;
+            grid-template-columns: subgrid;
+            gap: 0 4vw;
+            order: 1;
+        }
         .itemRitaWork,
         .itemRitaJinji {
             position: relative;
@@ -211,12 +342,20 @@
             padding: 1.4em;
             background-color: #fff;
             border-radius: $radius24;
+            @include sp {
+                grid-column: span 2;
+                padding: 4vw;
+            }
             span {
                 font-size: FZ(18);
                 text-align: center;
                 line-height: 1.4em;
                 padding-bottom: 1.8em;
                 font-weight: 700;
+                @include sp {
+                    font-size: FZ(14);
+                    padding-bottom: 2vw;
+                }
             }
         }
         .itemRitaWork {
@@ -225,12 +364,18 @@
                 aspect-ratio: $aspect-logo-mark;
                 width: 97px;
                 fill: $key-orange;
+                @include sp {
+                    width: 50%;
+                }
             }
             .logoText {
                 aspect-ratio: $aspect-logo-hero;
                 fill: $key-orange;
                 width: 163px;
                 margin-top: 1rem;
+                @include sp {
+                    width: 90%;
+                }
             }
             .itemCross {
                 font-size: inherit;
@@ -242,6 +387,9 @@
                 height: 4em;
                 width: 3.6rem;
                 aspect-ratio: 1;
+                @include sp {
+                    display: none;
+                }
                 &::before,
                 &::after {
                     content: "";
@@ -265,6 +413,10 @@
             color: #004199;
             img {
                 max-width: 16rem;
+                @include sp {
+                    max-width: unset;
+                    width: 80%;
+                }
             }
         }
     }
@@ -290,6 +442,7 @@
     @include sp {
         display: flex;
         flex-direction: column;
+        padding: 4vw;
     }
     .itemMark {
         position: absolute;
@@ -319,6 +472,10 @@
         align-items: center;
         border-radius: $radius24;
         padding: 1.4em;
+        @include sp {
+            width: 50vw;
+            align-self: center;
+        }
     }
     .boxJinji {
         span {
@@ -356,11 +513,18 @@
         font-size: FZ(24);
         font-weight: 700;
         padding-top: 0.5em;
+        @include sp {
+            font-size: FZ(20);
+        }
     }
     p {
         font-size: FZ(18);
         line-height: 2em;
         text-align: justify;
+        @include sp {
+            font-size: FZ(16);
+            line-height: 1.4em;
+        }
     }
     &.is-active {
         opacity: 1;

@@ -51,7 +51,6 @@
             z-index: 3;
             @include sp {
                 flex-direction: column;
-                width: unset;
                 font-size: FZ(12);
                 gap: 1vw 0;
                 padding: 0 4vw;
@@ -86,10 +85,10 @@
             z-index: -1;
         }
         &::before {
-            background: url("/images/hero.webp") no-repeat center center / cover;
+            background: url("/images/hero.webp") no-repeat 40% 45% / 105%;
             @include sp {
-                background-position: 30% 100%;
-                background-size: 180%;
+                background-position: 10% 100%;
+                background-size: 150%;
             }
         }
         &::after {
@@ -107,11 +106,10 @@
             font-size: 13.9vw;
             translate: 0 0.2em;
             @include sp {
-                gap: unset;
                 font-size: 20vw;
                 gap: 4vw 0;
-                translate: 0 30vw;
-                margin-top: 10vw;
+                translate: 0 34vw;
+                margin-top: 9vw;
             }
             span {
                 display: inline-block;
@@ -350,7 +348,7 @@
                     @include sp {
                         border-radius: 0 100vmax 100vmax 0;
                         font-size: FZ(16);
-                        padding: 4vw 4vw;
+                        padding: 4vw;
                     }
                     &::before {
                         content: "";

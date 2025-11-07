@@ -16,9 +16,17 @@
     background-color: $key-orange;
     @include top-radius($radius80);
     color: #fff;
+    @include sp {
+        @include top-radius($radius-sp80);
+        padding-top: 12vw;
+        padding-bottom: 4vw;
+    }
     h2 {
         font-size: FZ(40);
         font-weight: 700;
+        @include sp {
+            font-size: FZ(32);
+        }
     }
 }
 
@@ -36,6 +44,11 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 0 3em;
+        @include sp {
+            grid-template-columns: unset;
+            grid-auto-flow: row;
+            gap: 10vw 0;
+        }
         li {
             position: relative;
             font-size: inherit;
@@ -45,6 +58,11 @@
             border-radius: $radius24;
             display: flex;
             flex-direction: column;
+            @include sp {
+                gap: 2vw 0;
+                padding: 6vw 4vw 4vw;
+                border-radius: $radius-sp24;
+            }
             &:not(:last-of-type) {
                 &::after {
                     content: "";
@@ -63,6 +81,21 @@
                     background-size: 4px 1px;
                     background-repeat: repeat-x;
                     background-position: left bottom;
+                    @include sp {
+                        left: 50%;
+                        translate: -50%;
+                        top: calc(100% + 6px);
+                        width: 1px;
+                        height: 10vw;
+                        background-image: linear-gradient(
+                            to bottom,
+                            #fff 2px,
+                            transparent 2px
+                        );
+                        background-size: 1px 4px;
+                        background-repeat: repeat-y;
+                        background-position: left bottom;
+                    }
                 }
             }
             .step {
@@ -88,6 +121,9 @@
                 line-height: 1.6em;
                 text-align: justify;
                 font-weight: 500;
+                @include sp {
+                    font-size: FZ(16);
+                }
             }
         }
     }
@@ -97,6 +133,10 @@
         font-weight: 500;
         letter-spacing: 0.08em;
         line-height: 1.8em;
+        @include sp {
+            line-height: 1.4em;
+            font-weight: 400;
+        }
     }
     .itemHr {
         font-size: inherit;
@@ -104,6 +144,9 @@
         position: relative;
         height: 1px;
         width: 100%;
+        @include sp {
+            margin-block: 6vw;
+        }
         &::before {
             content: "";
             position: absolute;
@@ -145,6 +188,11 @@
         grid-template-columns: auto 1fr;
         grid-template-rows: repeat(2, 1fr);
         gap: 0.5em 0;
+        @include sp {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
         .itemLogo {
             grid-row: span 2;
             font-size: FZ(14);
@@ -164,6 +212,12 @@
             font-size: FZ(14);
             font-weight: 500;
             place-self: flex-end end;
+            @include sp {
+                font-size: FZ(12);
+                font-weight: 400;
+                align-self: center;
+                margin-top: 2vw;
+            }
         }
         span {
             @include Outfit;

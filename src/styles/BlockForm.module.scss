@@ -16,6 +16,10 @@
     flex-direction: column;
     align-items: center;
     margin-top: 3em;
+    @include sp {
+        border-radius: $radius-sp40;
+        margin-top: 6vw;
+    }
     .itemDetail {
         font-size: inherit;
         display: flex;
@@ -29,29 +33,33 @@
             position: relative;
             font-size: inherit;
             padding: 3em 2em 5em;
-            .boxBtn {
-                font-size: inherit;
-                display: flex;
-                flex-direction: column;
-                p {
-                    font-size: FZ(16);
-                    color: $other-black;
-                }
-                button {
-                    font-size: FZ(14);
-                    padding-block: 1em;
-                    border-radius: 0.3rem;
-                    transition: 0.3s ease-out;
-                    background-color: $base-blue;
-                    @include sp {
-                        padding-block: 4vw;
-                        font-size: FZ(16);
-                    }
-                    &:hover {
-                        background-color: $hover-blue;
-                    }
-                }
+            @include sp {
+                padding: 6vw 4vw;
             }
+
+            // .boxBtn {
+            //     font-size: inherit;
+            //     display: flex;
+            //     flex-direction: column;
+            //     p {
+            //         font-size: FZ(16);
+            //         color: $other-black;
+            //     }
+            //     button {
+            //         font-size: FZ(14);
+            //         padding-block: 1em;
+            //         border-radius: 0.3rem;
+            //         transition: 0.3s ease-out;
+            //         background-color: $base-blue;
+            //         @include sp {
+            //             padding-block: 4vw;
+            //             font-size: FZ(16);
+            //         }
+            //         &:hover {
+            //             background-color: $hover-blue;
+            //         }
+            //     }
+            // }
             .blockFormInner {
                 position: relative;
                 width: 100%;
@@ -104,6 +112,7 @@
                         padding: 1em;
                         width: 100%;
                         font-size: 1.6rem;
+                        border-radius: $radius-sp14;
                     }
                     &::placeholder {
                         color: #8f8f8f;
@@ -144,6 +153,10 @@
                         color: $other-black;
                         justify-self: end;
                         padding-top: 1em;
+                        @include sp {
+                            justify-self: start;
+                            font-size: FZ(16);
+                        }
                         &.formRequired {
                             &::after {
                                 content: "必須";
@@ -153,6 +166,9 @@
                                 align-self: flex-start;
                                 padding: 0.1em 0.3em;
                                 border-radius: $radius8;
+                                @include sp {
+                                    border-radius: 4px;
+                                }
                             }
                         }
                     }
@@ -207,6 +223,9 @@
                         @include sp {
                             padding-block: 4vw;
                             font-size: FZ(16);
+                            border-radius: 2vw;
+                            width: 100%;
+                            margin-top: 4vw;
                         }
                         &:hover {
                             background-color: $hover-blue;

@@ -46,7 +46,7 @@ const ContainerStructure = () => {
         })}
         ref={block01Ref}
       >
-        <div className={styles.wrapSide}>
+        <div className={styles.wrapSideHead}>
           <div className={styles.itemHead}>
             <Image src={ImageSeeker} alt="求職者" />
             <span>求職者</span>
@@ -59,9 +59,13 @@ const ContainerStructure = () => {
             <li>市場価値がわかる</li>
           </ul>
         </div>
-        <div className={styles.wrapArrow}>
+        <div className={styles.wrapArrowHead}>
           <div className={styles.ArrowTop}>
-            <span>企業の提案</span>
+            <span>
+              企業の
+              <br className="sp" />
+              提案
+            </span>
             <span>求職活動</span>
           </div>
           <div className={styles.ArrowBottom}>
@@ -93,7 +97,7 @@ const ContainerStructure = () => {
             <Image src={LogoRitaJinji} alt="リタジンジ" />
           </div>
         </div>
-        <div className={styles.wrapArrow}>
+        <div className={styles.wrapArrowFoot}>
           <div className={styles.ArrowTop}>
             <span>求人掲載</span>
             <span>
@@ -103,11 +107,19 @@ const ContainerStructure = () => {
             </span>
           </div>
           <div className={styles.ArrowBottom}>
-            <span>業務を丸投げ</span>
-            <span>応募数アップ</span>
+            <span>
+              業務を
+              <br className="sp" />
+              丸投げ
+            </span>
+            <span>
+              応募数
+              <br className="sp" />
+              アップ
+            </span>
           </div>
         </div>
-        <div className={styles.wrapSide}>
+        <div className={styles.wrapSideFoot}>
           <div className={styles.itemHead}>
             <Image src={ImageCompany} alt="求人企業" />
             <span>求人企業</span>

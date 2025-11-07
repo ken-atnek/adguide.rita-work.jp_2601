@@ -94,6 +94,9 @@
         border-radius: 50%;
         transition: 0.3s ease-out;
         filter: drop-shadow(3px 3px 2px rgb(178 126 52 / 20%));
+        @include sp {
+            width: 8vw;
+        }
         &::after {
             content: "";
             position: absolute;
@@ -102,6 +105,9 @@
             width: 15px;
             @include svg-arrow-triangle("4C6BE8");
             translate: 2px;
+            @include sp {
+                width: 3vw;
+            }
         }
         @include hover {
             background-color: #fff;
@@ -120,6 +126,7 @@
     padding-bottom: clamp(20rem, 23vw, 33rem);
     @include sp {
         padding-top: 12vw;
+        padding-bottom: 8vw;
     }
     .boxContents {
         display: flex;
@@ -130,7 +137,6 @@
         font-size: inherit;
         margin-top: 10em;
         @include sp {
-            margin-top: 12vw;
             flex-direction: column;
             gap: 4vw 0;
             margin-top: 6vw;
@@ -213,6 +219,11 @@
                 padding: 1.4em;
                 text-align: justify;
                 max-width: 19em;
+                @include sp {
+                    max-width: unset;
+                    font-size: FZ(16);
+                    padding: 4vw;
+                }
             }
         }
         &.is-active {
@@ -248,6 +259,7 @@
     padding-bottom: 6em;
     @include sp {
         padding-top: 12vw;
+        padding-bottom: 10vw;
     }
     .notice {
         font-size: FZ(20);
@@ -270,6 +282,7 @@
         max-width: 106rem;
         @include sp {
             gap: 4vw 0;
+            margin-top: 4vw;
         }
         li {
             font-size: inherit;
@@ -284,6 +297,9 @@
                 background-color: $key-orange;
                 border-radius: $radius24 0 0 $radius24;
                 overflow: hidden;
+                @include sp {
+                    border-radius: $radius-sp24 0 0 $radius-sp24;
+                }
                 img {
                     width: 100%;
                     object-fit: cover;
@@ -302,7 +318,8 @@
                 padding-right: 7em;
                 max-width: 63rem;
                 @include sp {
-                    padding: 4vw;
+                    padding: 2vw;
+                    border-radius: 0 $radius-sp24 $radius-sp24 0;
                 }
                 h4 {
                     font-size: FZ(24);
@@ -316,12 +333,17 @@
                     line-height: 1.8em;
                     margin-top: 1em;
                     @include sp {
-                        font-size: FZ(16);
+                        font-size: FZ(14);
+                        text-align: justify;
                     }
                 }
                 .itemPageLink {
                     bottom: 2em;
                     right: 2em;
+                    @include sp {
+                        bottom: 2vw;
+                        right: 2vw;
+                    }
                 }
             }
             &.item1 {
@@ -384,6 +406,9 @@
     align-items: center;
     padding-top: 5em;
     padding-bottom: 6em;
+    @include sp {
+        padding-bottom: 10vw;
+    }
     .boxContents {
         position: relative;
         display: flex;
@@ -406,7 +431,7 @@
                 width: 100%;
                 grid-template-columns: unset;
                 grid-auto-flow: row;
-                gap: 4vw 0;
+                gap: 2vw 0;
                 margin-top: 56vw;
             }
             &::before {
@@ -452,6 +477,10 @@
                 border-radius: 0 $radius24 $radius24;
                 opacity: 0;
                 translate: 0 10rem;
+                @include sp {
+                    width: 100%;
+                    padding: 4vw;
+                }
                 &::before {
                     content: "";
                     position: absolute;
@@ -468,12 +497,22 @@
                     border-bottom: 2px solid;
                     padding-bottom: 0.5em;
                     white-space: pre-line;
+                    @include sp {
+                        white-space: nowrap;
+                        width: fit-content;
+                        font-size: FZ(20);
+                        padding-bottom: 0;
+                    }
                 }
                 p {
                     font-size: FZ(18);
                     line-height: 1.7em;
                     margin-top: 1em;
                     text-align: justify;
+                    @include sp {
+                        font-size: FZ(16);
+                        line-height: 1.4em;
+                    }
                 }
             }
             &.is-active {
@@ -505,6 +544,15 @@
         letter-spacing: 0.08em;
         line-height: 1.6em;
         font-weight: 500;
+        @include sp {
+            max-width: unset;
+            font-size: FZ(18);
+            text-align: justify;
+            padding: 4vw;
+            border-radius: $radius-sp24;
+            letter-spacing: 0.04em;
+            margin-top: 8vw;
+        }
         i {
             color: $key-orange;
         }
@@ -529,8 +577,7 @@
         grid-template-columns: auto 1fr 1fr 1fr;
         gap: 1px;
         @include sp {
-            overflow-y: hidden;
-            overflow-x: scroll;
+            overflow: scroll hidden;
         }
         li {
             grid-column: span 4;
