@@ -36,30 +36,35 @@
             @include sp {
                 padding: 6vw 4vw;
             }
-
-            // .boxBtn {
-            //     font-size: inherit;
-            //     display: flex;
-            //     flex-direction: column;
-            //     p {
-            //         font-size: FZ(16);
-            //         color: $other-black;
-            //     }
-            //     button {
-            //         font-size: FZ(14);
-            //         padding-block: 1em;
-            //         border-radius: 0.3rem;
-            //         transition: 0.3s ease-out;
-            //         background-color: $base-blue;
-            //         @include sp {
-            //             padding-block: 4vw;
-            //             font-size: FZ(16);
-            //         }
-            //         &:hover {
-            //             background-color: $hover-blue;
-            //         }
-            //     }
-            // }
+            .boxBtn {
+                font-size: inherit;
+                display: flex;
+                justify-content: center;
+                gap: 0 2em;
+                p {
+                    font-size: FZ(16);
+                    color: $other-black;
+                }
+                button {
+                    width: 28rem;
+                    height: 64px;
+                    font-size: FZ(20);
+                    border-radius: $radius14;
+                    transition: 0.3s ease-out;
+                    background-color: $base-blue;
+                    color: #fff;
+                    @include sp {
+                        padding-block: 4vw;
+                        font-size: FZ(16);
+                        border-radius: 2vw;
+                        width: 100%;
+                        margin-top: 4vw;
+                    }
+                    &:hover {
+                        background-color: $hover-blue;
+                    }
+                }
+            }
             .blockFormInner {
                 position: relative;
                 width: 100%;
@@ -213,23 +218,7 @@
                         }
                     }
                     button {
-                        width: 28rem;
-                        height: 64px;
-                        font-size: FZ(20);
-                        border-radius: $radius14;
-                        transition: 0.3s ease-out;
-                        background-color: $base-blue;
                         margin-top: 3em;
-                        @include sp {
-                            padding-block: 4vw;
-                            font-size: FZ(16);
-                            border-radius: 2vw;
-                            width: 100%;
-                            margin-top: 4vw;
-                        }
-                        &:hover {
-                            background-color: $hover-blue;
-                        }
                     }
                 }
             }
@@ -240,23 +229,26 @@
                 position: relative;
                 display: flex;
                 flex-direction: column;
-                gap: 2em 0;
+                gap: 3em 0;
                 font-size: inherit;
+                color: #555;
+
                 @include sp {
                     gap: 6vw 0;
                     padding-top: 4vw;
                 }
                 p {
                     align-self: center;
-                    font-size: FZ(16);
+                    font-size: FZ(18);
                 }
                 dl {
                     display: flex;
                     font-size: inherit;
+                    gap: 0 4em;
                     dt {
-                        font-size: FZ(14);
-                        color: #555;
+                        font-size: FZ(16);
                         width: 10em;
+                        text-align: right;
                     }
                     dd {
                         font-size: inherit;
@@ -264,7 +256,7 @@
                         flex-direction: column;
                         gap: 0.5em 0;
                         & > div {
-                            font-size: FZ(16);
+                            font-size: FZ(18);
                         }
                     }
                 }
@@ -274,11 +266,7 @@
                     padding: 0.8em;
                     line-height: 1.6em;
                 }
-                .box_btn {
-                    display: grid;
-                    grid-template-columns: repeat(2, 1fr);
-                    font-size: inherit;
-                    gap: 0 2em;
+                .boxBtn {
                     margin-top: 1em;
                     @include sp {
                         margin-top: 10vw;

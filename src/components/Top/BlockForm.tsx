@@ -71,7 +71,7 @@ const BlockForm = () => {
 
     try {
       const response = await fetch(
-        'https://tuna-pic.co.jp/backend/contact.php',
+        'https://adguide.rita-work.jp/backend/contact.php',
         {
           method: 'POST',
           body: formData,
@@ -86,7 +86,11 @@ const BlockForm = () => {
         setIndustry('');
         setStatus('');
         setIsModalOpen(true); // モーダルを開く
-        setTimeout(() => setIsModalOpen(false), 3000); // 3秒後に自動閉じる
+        // 3秒後に自動で#Headerにスクロール
+        setTimeout(() => {
+          setIsModalOpen(false);
+          window.location.hash = '#Header';
+        }, 3000);
         setName('');
         setEmail('');
         setPhone('');
@@ -116,9 +120,36 @@ const BlockForm = () => {
               <div className={styles.statusConfirm}>
                 <p>入力内容を確認してください。</p>
                 <dl>
+                  <dt>事業者名</dt>
+                  <dd>
+                    <div>{CompanyName}</div>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>業種</dt>
+                  <dd>
+                    <div>{industry}</div>
+                  </dd>
+                </dl>
+                <dl>
                   <dt>お名前</dt>
                   <dd>
                     <div>{Name}</div>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>住所</dt>
+                  <dd>
+                    <div>{post}</div>
+                    <div>{city}</div>
+                    <div>{address}</div>
+                    <div>{building}</div>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>メールアドレス</dt>
+                  <dd>
+                    <div>{email}</div>
                   </dd>
                 </dl>
                 <dl>
@@ -128,13 +159,14 @@ const BlockForm = () => {
                   </dd>
                 </dl>
                 <dl>
-                  <dt>メールアドレス</dt>
+                  <dt>折り返し連絡方法</dt>
                   <dd>
-                    <div>{email}</div>
+                    <div>{reply}</div>
                   </dd>
                 </dl>
+
                 <div className={styles.boxMessage}>{message}</div>
-                <div className={styles.box_btn}>
+                <div className={styles.boxBtn}>
                   <button type="button" onClick={handleEdit}>
                     修正する
                   </button>
@@ -152,7 +184,7 @@ const BlockForm = () => {
                     <input
                       type="text"
                       value={CompanyName}
-                      onChange={(e) => setName(e.target.value)}
+                      onChange={(e) => setCompanyName(e.target.value)}
                       required
                     />
                   </dd>
@@ -281,10 +313,17 @@ const BlockForm = () => {
       {isModalOpen && (
         <Modal
           isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
+          onClose={() => {
+            setIsModalOpen(false);
+            // より滑らかなスクロール
+            const headerElement = document.getElementById('Header');
+            if (headerElement) {
+              headerElement.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
           ariaLabelledby="contact-modal-title"
         >
-          <div id="contact-modal">
+          <div id="contact-modal" className="contact-modal">
             <h3 id="contact-modal-title">送信完了</h3>
             <p>お問い合わせありがとうございます。送信が完了しました。</p>
           </div>

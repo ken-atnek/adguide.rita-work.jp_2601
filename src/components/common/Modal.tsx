@@ -8,7 +8,6 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-
 type ModalProps = {
   isOpen: boolean;
   onClose: () => void;
@@ -44,16 +43,16 @@ const Modal = ({ isOpen, onClose, ariaLabelledby, children }: ModalProps) => {
       className="modalOverlay"
       onClick={onClose}
     >
-      <div className="modalContent" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        {children}
         <button
           type="button"
           className="modalClose"
           aria-label="閉じる"
           onClick={onClose}
         >
-          ×
+          閉じる
         </button>
-        {children}
       </div>
     </div>,
     container

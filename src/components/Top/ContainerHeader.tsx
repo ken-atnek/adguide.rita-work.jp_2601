@@ -16,6 +16,7 @@ const ContainerHeader = () => {
     <header
       className={`${styles.containerHeader} ${isVisible ? styles['is-active'] : ''}`}
       ref={ref}
+      id="Header"
     >
       <div className={styles.boxH1}>
         <span>
