@@ -5,12 +5,13 @@
  * Created: 2025-10-10
  * Last updated: 2025-10-10
  * ======================================= */
-
+'use client';
 import styles from '@/styles/TopContact.module.scss';
+import clsx from 'clsx';
 import ExternalLink from '@/components/common/ExternalLink';
 import { SHOP_INFO } from '@/config/shop';
 import BlockForm from '@/components/Top/BlockForm';
-
+import useScrollStopped from '@/hooks/useScrollStopped';
 type StepItem = {
   step: string;
   title: string;
@@ -41,8 +42,9 @@ const stepList: StepItem[] = [
 ];
 
 const ContainerContact = () => {
+  const isScrollStopped = useScrollStopped(150); // 150ms後に停止とみなす
   return (
-    <section className={styles.containerContact}>
+    <section className={styles.containerContact} id="ContainerContact">
       <h2>ご相談・お問い合わせ</h2>
       <BlockForm />
       <article className={styles.blockFooter}>
@@ -77,6 +79,15 @@ const ContainerContact = () => {
           <span>© 2025 RITAWORK</span>
         </div>
       </article>
+      <a
+        href="#ContainerContact"
+        className={clsx(styles.mobileFixedMenu, {
+          [styles['is-active']]: isScrollStopped,
+        })}
+      >
+        {' '}
+        <span>求人掲載のご相談・お申し込み</span>
+      </a>
     </section>
   );
 };
