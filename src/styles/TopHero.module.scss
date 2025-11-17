@@ -85,10 +85,10 @@
             z-index: -1;
         }
         &::before {
-            background: url("/images/hero.webp") no-repeat center center / cover;
+            background: url("/images/hero.webp") no-repeat 40% 45% / 105%;
             @include sp {
-                background-position: 30% 100%;
-                background-size: 180%;
+                background-position: 10% 100%;
+                background-size: 150%;
             }
         }
         &::after {
@@ -108,8 +108,8 @@
             @include sp {
                 font-size: 20vw;
                 gap: 4vw 0;
-                translate: 0 30vw;
-                margin-top: 10vw;
+                translate: 0 34vw;
+                margin-top: 9vw;
             }
             span {
                 display: inline-block;
