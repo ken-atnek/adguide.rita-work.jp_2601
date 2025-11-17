@@ -145,7 +145,7 @@ const ContainerFocusList = () => {
         <p className={styles.announce}>
           LINE登録後には、<i>相談・面接対策・職場案内・アフターケア</i>
           までトータルサポート。
-          <br />
+          <br className="pc" />
           安心して転職活動を進められるため、応募者の質と定着率が高まります。
         </p>
       </article>

@@ -37,7 +37,7 @@
         letter-spacing: 0.12em;
         @include sp {
             font-size: FZ(16);
-            width: 90vw;
+            width: 96vw;
             padding-left: 12vw;
             height: 12vw;
         }
@@ -120,6 +120,7 @@
     padding-bottom: clamp(20rem, 23vw, 33rem);
     @include sp {
         padding-top: 12vw;
+        padding-bottom: 14vw;
     }
     .boxContents {
         display: flex;
@@ -130,7 +131,6 @@
         font-size: inherit;
         margin-top: 10em;
         @include sp {
-            margin-top: 12vw;
             flex-direction: column;
             gap: 4vw 0;
             margin-top: 6vw;
@@ -213,6 +213,9 @@
                 padding: 1.4em;
                 text-align: justify;
                 max-width: 19em;
+                @include sp {
+                    max-width: unset;
+                }
             }
         }
         &.is-active {
@@ -256,6 +259,7 @@
         margin-top: 3em;
         @include sp {
             font-size: FZ(14);
+            margin-top: 6vw;
         }
     }
     ul {
@@ -270,6 +274,8 @@
         max-width: 106rem;
         @include sp {
             gap: 4vw 0;
+            margin-top: 6vw;
+            grid-template-columns: 35% 1fr;
         }
         li {
             font-size: inherit;
@@ -376,7 +382,7 @@
 }
 
 /* =================================
- * 求職者にしっかり寄り添った転職支援
+ * 03.求職者にしっかり寄り添った転職支援
  * ------------------------------ */
 .blockFocus03 {
     display: flex;
@@ -384,6 +390,10 @@
     align-items: center;
     padding-top: 5em;
     padding-bottom: 6em;
+    @include sp {
+        padding-bottom: 12vw;
+        padding-top: 12vw;
+    }
     .boxContents {
         position: relative;
         display: flex;
@@ -452,6 +462,9 @@
                 border-radius: 0 $radius24 $radius24;
                 opacity: 0;
                 translate: 0 10rem;
+                @include sp {
+                    border-radius: 0 $radius-sp24 $radius-sp24;
+                }
                 &::before {
                     content: "";
                     position: absolute;
@@ -505,6 +518,13 @@
         letter-spacing: 0.08em;
         line-height: 1.6em;
         font-weight: 500;
+        @include sp {
+            border-radius: $radius-sp24;
+            margin-top: 8vw;
+            padding: 6vw;
+            text-align: justify;
+            font-size: FZ(20);
+        }
         i {
             color: $key-orange;
         }
@@ -519,6 +539,9 @@
     flex-direction: column;
     align-items: center;
     padding-top: 5em;
+    @include sp {
+        padding-top: 12vw;
+    }
     .planTable {
         position: relative;
         font-size: inherit;
@@ -529,8 +552,8 @@
         grid-template-columns: auto 1fr 1fr 1fr;
         gap: 1px;
         @include sp {
-            overflow-y: hidden;
-            overflow-x: scroll;
+            overflow: scroll hidden;
+            margin-top: 8vw;
         }
         li {
             grid-column: span 4;
