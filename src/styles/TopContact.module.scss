@@ -19,7 +19,7 @@
     z-index: 10;
     @include sp {
         @include top-radius($radius-sp80);
-        padding-top: 12vw;
+        padding-top: 6vw;
         padding-bottom: 4vw;
     }
     h2 {
@@ -39,6 +39,9 @@
     flex-direction: column;
     max-width: $articleMaxWidth;
     padding-top: 5em;
+    @include sp {
+        padding-top: 14vw;
+    }
     .stepList {
         position: relative;
         font-size: inherit;
@@ -61,7 +64,7 @@
             flex-direction: column;
             @include sp {
                 gap: 2vw 0;
-                padding: 6vw 4vw 4vw;
+                padding: 6vw 6vw 4vw;
                 border-radius: $radius-sp24;
             }
             &:not(:last-of-type) {

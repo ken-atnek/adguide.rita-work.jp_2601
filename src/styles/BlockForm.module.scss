@@ -207,6 +207,9 @@
                     align-items: center;
                     flex-direction: column;
                     grid-column: span 2;
+                    @include sp {
+                        margin-top: 2vw;
+                    }
                     p {
                         font-size: FZ(16);
                         font-weight: 500;
@@ -219,6 +222,9 @@
                     }
                     button {
                         margin-top: 3em;
+                        @include sp {
+                            margin-top: 4vw;
+                        }
                     }
                 }
             }

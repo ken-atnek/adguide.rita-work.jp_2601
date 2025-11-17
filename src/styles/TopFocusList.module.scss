@@ -482,6 +482,7 @@
                 translate: 0 10rem;
                 @include sp {
                     border-radius: 0 $radius-sp24 $radius-sp24;
+                    padding: 4vw 6vw 6vw;
                 }
                 &::before {
                     content: "";
@@ -728,6 +729,9 @@
         margin: 3em 0;
         font-size: inherit;
         border-radius: 50%;
+        @include sp {
+            margin: 8vw 0;
+        }
         &::before,
         &::after {
             content: "";

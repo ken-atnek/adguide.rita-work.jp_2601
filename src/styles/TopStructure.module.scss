@@ -13,6 +13,9 @@
     flex-direction: column;
     align-items: center;
     padding: 6em 4vw 10em;
+    @include sp {
+        padding: 14vw 4vw 20vw;
+    }
     &::before {
         content: "";
         position: absolute;
@@ -32,8 +35,9 @@
         font-weight: 700;
         letter-spacing: 0.12em;
         @include sp {
-            font-size: FZ(24);
+            font-size: FZ(30);
             font-weight: 700;
+            letter-spacing: 0.08em;
         }
         svg {
             font-size: inherit;
@@ -42,8 +46,9 @@
             aspect-ratio: $aspect-logo-footer;
             margin-right: 0.2em;
             @include sp {
-                width: 60vw;
+                width: 56vw;
                 margin-right: 2vw;
+                translate: 0 -1vw;
             }
         }
     }
@@ -56,6 +61,7 @@
         @include sp {
             font-size: FZ(24);
             line-height: 1.4em;
+            padding-inline: 4vw;
         }
         i {
             line-height: 1em;
@@ -81,6 +87,7 @@
             text-align: justify;
             line-height: 1.4em;
             margin-top: 4vw;
+            padding-inline: 5vw;
         }
     }
 }
@@ -106,6 +113,7 @@
         grid-template-columns: repeat(4, 1fr);
         padding: 4vw;
         gap: 4vw 0;
+        margin-top: 6vw;
     }
     .wrapSideHead,
     .wrapSideFoot {
@@ -442,7 +450,7 @@
     @include sp {
         display: flex;
         flex-direction: column;
-        padding: 4vw;
+        padding: 6vw;
     }
     .itemMark {
         position: absolute;
@@ -515,6 +523,8 @@
         padding-top: 0.5em;
         @include sp {
             font-size: FZ(20);
+            letter-spacing: 0.08em;
+            text-align: center;
         }
     }
     p {
