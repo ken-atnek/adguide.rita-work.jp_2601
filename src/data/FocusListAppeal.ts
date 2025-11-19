@@ -17,7 +17,7 @@ export const appealItems: AppealItem[] = [
     id: 1,
     image: AppealImage01,
     alt: 'インタビュー',
-    title: 'インタビューで伝える“リアルな声”',
+    title: 'インタビューで伝える<br class="sp">"リアルな声"',
     description:
       '職場担当者への取材で、雰囲気や人間関係など条件表だけでは見えない魅力を発信します。',
     link: 'https://www.yahoo.co.jp/',
@@ -35,7 +35,7 @@ export const appealItems: AppealItem[] = [
     id: 3,
     image: AppealImage03,
     alt: '動画紹介',
-    title: '働き方と福利厚生を“見える化”',
+    title: '働き方と福利厚生を<br class="sp">“見える化”',
     description:
       '制度やサポート体制を整理し、応募者が判断しやすい情報をわかりやすく提示します。',
     link: 'https://www.yahoo.co.jp/',

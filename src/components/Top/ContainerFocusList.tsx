@@ -106,7 +106,7 @@ const ContainerFocusList = () => {
                 <Image src={item.image} alt={item.alt} />
               </div>
               <div className={styles.wrapText}>
-                <h4>{item.title}</h4>
+                <h4 dangerouslySetInnerHTML={{ __html: item.title }}></h4>
                 <p>{item.description}</p>
                 <ExternalLink
                   href={item.link}
