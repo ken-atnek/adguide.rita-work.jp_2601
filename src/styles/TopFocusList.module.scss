@@ -94,6 +94,7 @@
         border-radius: 50%;
         transition: 0.3s ease-out;
         filter: drop-shadow(3px 3px 2px rgb(178 126 52 / 20%));
+        display: none;
         @include sp {
             width: 8vw;
         }

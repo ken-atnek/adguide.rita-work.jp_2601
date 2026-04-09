@@ -11,15 +11,15 @@ import ImageMascot01 from '@/images/mascot01.webp';
 import ImageMascot02 from '@/images/mascot03.webp';
 import Image from 'next/image';
 import BlockFAQ from '@/components/Top/BlockFAQ';
-import BlockResponse from '@/components/Top/BlockResponse';
+// import BlockResponse from '@/components/Top/BlockResponse';
 
 const ContainerResponse = () => {
   return (
     <section className={styles.containerResponse}>
-      <article>
+      {/* <article>
         <h2>ご契約会社の声</h2>
         <BlockResponse />
-      </article>
+      </article> */}
       <article>
         <h2>Q&A</h2>
         <BlockFAQ dataPath="/data/faq.json" />
